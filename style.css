@@ -5,6 +5,10 @@
 }
 
 
+
+
+
+
 .grid-container {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
@@ -57,12 +61,9 @@
   transition: transform 0.1s ease-in-out;
 }
 
-
-
-
 .team-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 20px;
 }
 
@@ -103,12 +104,33 @@
   border-top: 1px solid #ddd;
 }
 
+.custom-cursor {
+  position: fixed;
+  opacity: 0;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  mix-blend-mode: color-dodge;
+  width: 80px;
+  margin-left: -40px;
+  margin-top: -40px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background-color: #1e59f1;
+  transition-property: transform, scale, opacity;
+  transition-duration: 250ms;
+  transition-timing-function: ease-in-out;
+  scale: 0.3;
+  z-index: 10000;
+}
 
+.custom-cursor--link {
+  scale: 0.7;
+}
 
-
-
-
-
+.custom-cursor--init {
+  opacity: 1;
+}
 
 :root {
   --theme-bg-color: rgba(16 18 27 / 40%);
@@ -161,10 +183,12 @@ body {
   padding: 2em;
   width: 100%;
   height: 100vh;
+  cursor: none !important;
 }
 
 a {
   text-decoration: none;
+  cursor: none !important;
 }
 
 @media screen and (max-width: 480px) {
@@ -185,7 +209,7 @@ a {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 img {
@@ -236,16 +260,20 @@ body.light-mode .video-bg:before {
   top: 0;
   width: 100%;
   height: 100vh;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.72) 0%, rgba(255, 255, 255, 0.45) 100%);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.72) 0%,
+    rgba(255, 255, 255, 0.45) 100%
+  );
   -webkit-backdrop-filter: saturate(3);
-          backdrop-filter: saturate(3);
+  backdrop-filter: saturate(3);
 }
 
 .app {
   background-color: var(--theme-bg-color);
   max-width: 1250px;
   max-height: 860px;
-  height: 90vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -286,10 +314,21 @@ body.light-mode .video-bg:before {
 }
 @media screen and (max-width: 610px) {
   .header-menu a:not(.main-header-link) {
-    display: none;
+    display: auto;
+  }
+  .header-menu {
+    overflow: auto !important;
+  }
+  ::-webkit-scrollbar {
+      display: none !important;
+  }
+
+  .search-bar {
+    display: none !important;
   }
 }
-.header-menu a.is-active, .header-menu a:hover {
+.header-menu a.is-active,
+.header-menu a:hover {
   color: var(--theme-color);
   border-bottom: 2px solid var(--theme-color);
 }
@@ -417,7 +456,7 @@ body.light-mode .video-bg:before {
   height: 32px;
   border-radius: 50%;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   border: 2px solid var(--theme-color);
   margin-left: 22px;
 }
@@ -449,7 +488,17 @@ body.light-mode .video-bg:before {
   padding: 26px 40px;
   overflow: auto;
   flex-shrink: 0;
+
+  max-width: 240px; /* this is just a large enough value */
+  transition: max-width 0.5s ease-in-out, padding 0.5s ease-in-out;
+  overflow: hidden;
 }
+
+.hide-left-side {
+  padding: 26px 0px;
+  max-width: 0;
+}
+
 @media screen and (max-width: 945px) {
   .left-side {
     display: none !important;
@@ -587,7 +636,7 @@ body.light-mode .video-bg:before {
 }
 
 .img-content {
-  font-family: 'Bungee', cursive;
+  font-family: "Bungee", cursive;
   font-weight: 100;
   font-size: 24px;
   display: flex;
@@ -617,7 +666,7 @@ body.light-mode .video-bg:before {
 }
 
 .content-button {
-  background-color: #3a6df0;
+  background-color: #1e59f1;
   border: none;
   padding: 8px 26px;
   color: #fff;
@@ -631,9 +680,9 @@ body.light-mode .video-bg:before {
 .content-wrapper-img {
   width: 186px;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   -o-object-position: center;
-     object-position: center;
+  object-position: center;
 }
 @media screen and (max-width: 570px) {
   .content-wrapper-img {
@@ -662,6 +711,9 @@ body.light-mode .video-bg:before {
   border-radius: 14px;
   border: 1px solid var(--theme-bg-color);
   cursor: pointer;
+}
+li {
+  cursor: none !important;
 }
 .content-section ul li {
   list-style: none;
@@ -718,7 +770,7 @@ body.light-mode .video-bg:before {
 .status-circle {
   width: 6px;
   height: 6px;
-  background-color: #396df0;
+  background-color: #1e59f1;
   position: absolute;
   border-radius: 50%;
   top: 4px;
@@ -756,7 +808,8 @@ body.light-mode .video-bg:before {
   height: 5px;
   background-color: var(--button-inactive);
   border-radius: 50%;
-  box-shadow: 7px 0 0 0 var(--button-inactive), 14px 0 0 0 var(--button-inactive);
+  box-shadow: 7px 0 0 0 var(--button-inactive),
+    14px 0 0 0 var(--button-inactive);
   margin: 0 12px;
 }
 
