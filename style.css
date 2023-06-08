@@ -62,6 +62,50 @@
 
 
 
+
+.team-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  color: #1e59f1;
+}
+
+.team-member {
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  padding: 20px;
+  width: 200px;
+  transition: all 0.5s ease;
+  max-height: 300px;
+  overflow: auto;
+}
+
+.team-member img {
+  width: 100%;
+}
+
+.expanded-content {
+  display: none;
+}
+
+.team-member.expanded {
+  max-height: 600px;
+}
+
+.team-member.expanded .expanded-content {
+  display: block;
+}
+
+
+
+
+
+
+
+
+
+
+
 :root {
   --theme-bg-color: rgba(16 18 27 / 40%);
   --border-color: rgba(113 119 144 / 25%);

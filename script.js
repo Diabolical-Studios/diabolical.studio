@@ -106,6 +106,35 @@ $(function () {
     });
   });
 
+  document.addEventListener("DOMContentLoaded", function () {
+    var buttons = document.querySelectorAll(".expand-btn");
+    if (buttons.length > 0) {
+      buttons.forEach(function (btn) {
+        console.log("Button found");
+        btn.addEventListener("click", function () {
+          console.log("Button clicked");
+          var card = this.parentElement.parentElement;
+          var expandedContent = card.querySelector(".expanded-content");
+          console.log("Expanded content found: ", expandedContent);
+          if (
+            expandedContent.style.display === "none" ||
+            expandedContent.style.display === ""
+          ) {
+            expandedContent.style.display = "block";
+            card.classList.add("expanded");
+            console.log("Content is expanded");
+          } else {
+            expandedContent.style.display = "none";
+            card.classList.remove("expanded");
+            console.log("Content is collapsed");
+          }
+        });
+      });
+    } else {
+      console.log("No expandable buttons found");
+    }
+  });
+
   /* Status button and pop-up code
   $(function () {
     $(".status-button:not(.open)").on("click", function (e) {
