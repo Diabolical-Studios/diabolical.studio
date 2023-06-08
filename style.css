@@ -63,7 +63,7 @@
 
 .team-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 20px;
 }
 
@@ -606,6 +606,7 @@ body.light-mode .video-bg:before {
   background-color: #1e59f1;
   border-radius: 14px;
   padding: 20px 40px;
+  transition: all 0.5s ease-in-out;
 }
 @media screen and (max-width: 415px) {
   .content-wrapper-header {
