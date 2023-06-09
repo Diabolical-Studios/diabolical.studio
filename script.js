@@ -39,22 +39,26 @@ $(function () {
     function handleMainMenuClick(e) {
       let page = this.getAttribute("data-page");
       let leftSide = document.querySelector(".left-side");
-
+    
       if (page.includes("home")) {
-        leftSide.style.display = "block";
-        setTimeout(() => {
-          leftSide.style.maxWidth = "240px";
-          leftSide.classList.remove("hide-left-side");
-        }, 0); // Apply the changes in the next animation frame
+        leftSide.classList.remove("hide-left-side");
       } else {
         leftSide.classList.add("hide-left-side");
-        setTimeout(() => {
-          leftSide.style.maxWidth = "0";
-        }, 0); // Apply the changes in the next animation frame
       }
-
+    
       handleLinkClick.call(this, e);
     }
+    
+    document.querySelector(".dark-light").addEventListener("click", function() {
+      var leftSide = document.querySelector(".left-side");
+    
+      if (leftSide.classList.contains("hide-left-side")) {
+        leftSide.classList.remove("hide-left-side");
+      } else {
+        leftSide.classList.add("hide-left-side");
+      }
+    });
+    
 
     $(".menu-link").click(function () {
       $(".menu-link").removeClass("is-active");
@@ -217,7 +221,7 @@ $(function () {
       });
     }
   });
-  
+
 
   /* Status button and pop-up code
   $(function () {

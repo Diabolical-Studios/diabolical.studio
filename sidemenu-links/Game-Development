@@ -20,106 +20,98 @@
   <div class="content-section">
     <div class="team-container" id="teamContainer">
       <div class="card">
-        <img
-          src="https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs2/298273565/original/5b0830f8ca44c523f090dc23e784246cc8372ce5/create-professional-3d-design.png"
-          alt="team member image">
-        <div class="card-content" style="line-height: normal;">
-          <h4 style="font-family: 'Bungee'; font-weight: 100;">Doruk Şaşmaz</h4>
-          <p>3D & UI Artist</p>
-        </div>
-        <div class="expanded-content">
-          <p>Expanded information about the team member...</p>
-          <button class="expand-btn">Read more</button>
-        </div>
+        <a href="https://doruksasmaz.com/potato.html" style="color: #fff;">
+
+
+          <video class="desktop-video" style="max-height: 200px; object-fit: cover; width: 100%;" autoplay loop muted
+            playsinline>
+            <source src="content/POTATO.webm" type="video/webm">
+          </video>
+          <img class="mobile-image" src="content/POTATO.png" style="max-height: 200px;" alt="Enhancer Gaming Hackathon">
+
+
+          <div class="card-content" style="line-height: normal;">
+            <h4 style="font-family: 'Bungee'; font-weight: 100;">P.O.T.A.T.O</h4>
+            <p>Experience life as a sentient spud in a high-tech rollercoaster ride, P.O.T.A.T.O.</p>
+          </div>
+          <div class="expanded-content">
+            <p>Expanded information about the team member...</p>
+            <button class="expand-btn">Read more</button>
+          </div>
+        </a>
       </div>
 
       <div class="card">
-        <img
-          src="https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs2/298273565/original/5b0830f8ca44c523f090dc23e784246cc8372ce5/create-professional-3d-design.png"
-          alt="team member image">
-        <div class="card-content" style="line-height: normal;">
-          <h4 style="font-family: 'Bungee'; font-weight: 100;">Berkin Cemal Paker</h4>
-          <p>Game & Level Designer</p>
-        </div>
-        <div class="expanded-content">
-          <p>Expanded information about the team member...</p>
-          <button class="expand-btn">Read more</button>
-        </div>
+        <a href="https://doruksasmaz.com/potato.html" style="color: #fff;">
+
+
+          <video class="desktop-video" style="max-height: 200px; object-fit: cover; width: 100%;" autoplay loop muted
+            playsinline>
+            <source src="content/Internal.webm" type="video/webm">
+          </video>
+          <img class="mobile-image" src="content/Internal.png" style="max-height: 200px;"
+            alt="Enhancer Gaming Hackathon">
+
+
+          <div class="card-content" style="line-height: normal;">
+            <h4 style="font-family: 'Bungee'; font-weight: 100;">Intern: All Conflict</h4>
+            <p>High-octane office mayhem in a first-person race against the clock.</p>
+          </div>
+          <div class="expanded-content">
+            <p>Expanded information about the team member...</p>
+            <button class="expand-btn">Read more</button>
+          </div>
+        </a>
       </div>
 
       <div class="card">
-        <img
-          src="https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs2/298273565/original/5b0830f8ca44c523f090dc23e784246cc8372ce5/create-professional-3d-design.png"
-          alt="team member image">
-        <div class="card-content" style="line-height: normal;">
-          <h4 style="font-family: 'Bungee'; font-weight: 100;">Emre Çelikler</h4>
-          <p>Game Developer</p>
-        </div>
-        <div class="expanded-content">
-          <p>Expanded information about the team member...</p>
-          <button class="expand-btn">Read more</button>
-        </div>
+        <a href="https://doruksasmaz.com/potato.html" style="color: #fff;">
+
+
+          <video class="desktop-video" style="max-height: 200px; object-fit: cover; width: 100%;" autoplay loop muted
+            playsinline>
+            <source src="content/ApeAscent.webm" type="video/webm">
+          </video>
+          <img class="mobile-image" src="content/ApeAscent.png" style="max-height: 200px;"
+            alt="Enhancer Gaming Hackathon">
+
+
+          <div class="card-content" style="line-height: normal;">
+            <h4 style="font-family: 'Bungee'; font-weight: 100;">Ape Ascent</h4>
+            <p>Unleash your primal fury in a vertigo-inducing VR climb for dominance.</p>
+          </div>
+          <div class="expanded-content">
+            <p>Expanded information about the team member...</p>
+            <button class="expand-btn">Read more</button>
+          </div>
+        </a>
       </div>
 
       <div class="card">
-        <img
-          src="https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs2/298273565/original/5b0830f8ca44c523f090dc23e784246cc8372ce5/create-professional-3d-design.png"
-          alt="team member image">
-        <div class="card-content" style="line-height: normal;">
-          <h4 style="font-family: 'Bungee'; font-weight: 100;">Lal Koyuncu</h4>
-          <p>3D & FX Artist</p>
-        </div>
-        <div class="expanded-content">
-          <p>Expanded information about the team member...</p>
-          <button class="expand-btn">Read more</button>
-        </div>
+        <a href="https://doruksasmaz.com/potato.html" style="color: #fff;">
+
+
+          <video class="desktop-video" style="max-height: 200px; object-fit: cover; width: 100%;" autoplay loop muted
+            playsinline>
+            <source src="content/HotHell.webm" type="video/webm">
+          </video>
+          <img class="mobile-image" src="content/HotHell.png" style="max-height: 200px;"
+            alt="Enhancer Gaming Hackathon">
+
+
+          <div class="card-content" style="line-height: normal;">
+            <h4 style="font-family: 'Bungee'; font-weight: 100;">Hot Hell</h4>
+            <p>Hot Hell: where every corridor twists into a new nightmare.</p>
+          </div>
+          <div class="expanded-content">
+            <p>Expanded information about the team member...</p>
+            <button class="expand-btn">Read more</button>
+          </div>
+        </a>
       </div>
 
-      <div class="card">
-        <img
-          src="https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs2/298273565/original/5b0830f8ca44c523f090dc23e784246cc8372ce5/create-professional-3d-design.png"
-          alt="team member image">
-        <div class="card-content" style="line-height: normal;">
-          <h4 style="font-family: 'Bungee'; font-weight: 100;">Yiğit Kayhan</h4>
-          <p>Sound Designer & Music Composer</p>
-        </div>
-        <div class="expanded-content">
-          <p>Expanded information about the team member...</p>
-          <button class="expand-btn">Read more</button>
-        </div>
-      </div>
-
-      <div class="card">
-        <img
-          src="https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs2/298273565/original/5b0830f8ca44c523f090dc23e784246cc8372ce5/create-professional-3d-design.png"
-          alt="team member image">
-        <div class="card-content" style="line-height: normal;">
-          <h4 style="font-family: 'Bungee'; font-weight: 100;">Jülide İsa</h4>
-          <p>2D & Concept Artist</p>
-        </div>
-        <div class="expanded-content">
-          <p>Expanded information about the team member...</p>
-          <button class="expand-btn">Read more</button>
-        </div>
-      </div>
-
-      <div class="card">
-        <img
-          src="https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs2/298273565/original/5b0830f8ca44c523f090dc23e784246cc8372ce5/create-professional-3d-design.png"
-          alt="team member image">
-        <div class="card-content" style="line-height: normal;">
-          <h4 style="font-family: 'Bungee'; font-weight: 100;">Mehmet Alp</h4>
-          <p>Lighting & Post-Processing Artist</p>
-        </div>
-        <div class="expanded-content">
-          <p>Expanded information about the team member...</p>
-          <button class="expand-btn">Read more</button>
-        </div>
-      </div>
       <!-- Add more team member cards as needed... -->
     </div>
-  </div>
-  
   </div>
 
   <!-- partial -->
