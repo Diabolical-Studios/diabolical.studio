@@ -558,17 +558,22 @@ body.light-mode .video-bg:before {
   flex-basis: 240px;
   border-right: 1px solid var(--border-color);
   padding: 26px 40px;
-  overflow: auto;
   flex-shrink: 0;
+  overflow: auto;
 
   max-width: 240px;
   transition: max-width 0.5s ease-in-out, padding 0.5s ease-in-out;
-  overflow: hidden;
 }
 
 .hide-left-side {
   padding: 26px 0px;
   max-width: 0;
+}
+
+@media screen and (max-width: 900px) {
+  .left-side{
+    
+    }
 }
 
 
