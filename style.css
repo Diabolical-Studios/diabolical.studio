@@ -278,13 +278,13 @@ img {
   padding: 8px;
   border-radius: 50%;
   z-index: 3;
-  cursor: pointer;
+  cursor: none;
 }
 .dark-light svg {
   width: 24px;
   flex-shrink: 0;
   fill: #ffce45;
-  stroke: #ffce45;
+  stroke: #fff;
   transition: 0.5s;
 }
 

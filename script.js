@@ -1,3 +1,25 @@
+const pages = [
+  {
+    title: "Home",
+    url: "home.html",
+  },
+  {
+    title: "Portfolio",
+    url: "portfolio.html",
+  },
+  {
+    title: "Our Team",
+    url: "our-team.html",
+  },
+  {
+    title: "Jobs",
+    url: "jobs.html",
+  },
+  // More pages...
+];
+
+
+
 $(function () {
   // This is the code for the menu links
   $(".menu-link").click(function () {
@@ -184,6 +206,7 @@ $(function () {
 
   document.addEventListener("mouseout", destroyCursor);
 
+  /*
   $(function () {
     // Search bar code
     $(".search-bar input")
@@ -207,21 +230,30 @@ $(function () {
     function displayResults(results) {
       const searchResults = $("#search-results");
       searchResults.empty();
-
+    
       if (results.length === 0) {
         const noResultsItem = $("<li>").text("No results found");
         searchResults.append(noResultsItem);
         return;
       }
-
+    
       results.forEach((result) => {
         const item = $("<li>");
-        const link = $("<a>").attr("href", result.url).text(result.title);
+        const link = $("<a>")
+          .text(result.title)
+          .on("click", function(e) {
+            e.preventDefault();
+            // Find the main menu link with the same 'data-page' attribute and click it
+            const correspondingLink = $(`.menu-link[data-page='${result.url}']`);
+            console.log(`Clicked on search result with URL ${result.url}`);
+            console.log(`Found corresponding main menu link: `, correspondingLink);
+            correspondingLink.click();
+          });
         item.append(link);
         searchResults.append(item);
       });
     }
-  });
+  }); */
 
   // Get all items
   var items = document.querySelectorAll(".left-side .side-menu-link");
