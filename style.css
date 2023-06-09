@@ -326,6 +326,16 @@ body.light-mode .video-bg:before {
   .search-bar {
     display: none !important;
   }
+
+  body {
+    overflow: hidden;
+  }
+  .custom-cursor{
+    display: none;
+  }
+  .app{
+    margin-bottom: 100px;
+  }
 }
 .header-menu a.is-active,
 .header-menu a:hover {
