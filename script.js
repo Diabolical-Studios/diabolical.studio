@@ -18,8 +18,6 @@ const pages = [
   // More pages...
 ];
 
-
-
 $(function () {
   // This is the code for the menu links
   $(".menu-link").click(function () {
@@ -267,6 +265,30 @@ $(function () {
         leftSide.classList.add("hide-left-side");
       }
     });
+  });
+
+  // Initialize left-side visibility on page load
+  window.addEventListener("load", function () {
+    var leftSide = document.querySelector(".left-side");
+
+    if (window.innerWidth <= 945) {
+      // Check if the device width is less than or equal to 945px
+      leftSide.classList.add("hide-left-side");
+    } else {
+      leftSide.classList.remove("hide-left-side");
+    }
+  });
+
+  // Update left-side visibility on window resize
+  window.addEventListener("resize", function () {
+    var leftSide = document.querySelector(".left-side");
+
+    if (window.innerWidth <= 945) {
+      // Check if the device width is less than or equal to 945px
+      leftSide.classList.add("hide-left-side");
+    } else {
+      leftSide.classList.remove("hide-left-side");
+    }
   });
 
   /* Status button and pop-up code
