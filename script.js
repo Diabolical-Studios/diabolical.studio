@@ -39,26 +39,27 @@ $(function () {
     function handleMainMenuClick(e) {
       let page = this.getAttribute("data-page");
       let leftSide = document.querySelector(".left-side");
-    
+
       if (page.includes("home")) {
         leftSide.classList.remove("hide-left-side");
       } else {
         leftSide.classList.add("hide-left-side");
       }
-    
+
       handleLinkClick.call(this, e);
     }
-    
-    document.querySelector(".dark-light").addEventListener("click", function() {
-      var leftSide = document.querySelector(".left-side");
-    
-      if (leftSide.classList.contains("hide-left-side")) {
-        leftSide.classList.remove("hide-left-side");
-      } else {
-        leftSide.classList.add("hide-left-side");
-      }
-    });
-    
+
+    document
+      .querySelector(".dark-light")
+      .addEventListener("click", function () {
+        var leftSide = document.querySelector(".left-side");
+
+        if (leftSide.classList.contains("hide-left-side")) {
+          leftSide.classList.remove("hide-left-side");
+        } else {
+          leftSide.classList.add("hide-left-side");
+        }
+      });
 
     $(".menu-link").click(function () {
       $(".menu-link").removeClass("is-active");
@@ -193,26 +194,26 @@ $(function () {
         $(".header").removeClass("wide");
       })
       .on("input", handleSearch);
-  
+
     function handleSearch() {
       const searchTerm = $(this).val().toLowerCase();
       const filteredPages = pages.filter((page) =>
         page.title.toLowerCase().includes(searchTerm)
       );
-  
+
       displayResults(filteredPages);
     }
-  
+
     function displayResults(results) {
       const searchResults = $("#search-results");
       searchResults.empty();
-  
+
       if (results.length === 0) {
         const noResultsItem = $("<li>").text("No results found");
         searchResults.append(noResultsItem);
         return;
       }
-  
+
       results.forEach((result) => {
         const item = $("<li>");
         const link = $("<a>").attr("href", result.url).text(result.title);
@@ -222,6 +223,19 @@ $(function () {
     }
   });
 
+  // Get all items
+  var items = document.querySelectorAll(".left-side .side-menu-link");
+
+  items.forEach(function (item) {
+    item.addEventListener("click", function () {
+      var leftSide = document.querySelector(".left-side");
+
+      if (window.innerWidth <= 945) {
+        // Check if the device width is less than or equal to 945px
+        leftSide.classList.add("hide-left-side");
+      }
+    });
+  });
 
   /* Status button and pop-up code
   $(function () {
