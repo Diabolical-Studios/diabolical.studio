@@ -48,6 +48,7 @@
 
 /* Main styles */
 body {
+  background-color: #222222;
   /* img size is 50x50 */
   background: url("content/indir.png") repeat 0 0;
   -webkit-animation: bg-scrolling-reverse 0.92s infinite;
