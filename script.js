@@ -291,7 +291,27 @@ $(function () {
     }
   });
 
-  /* Status button and pop-up code
+  /*
+  // Function to update the height
+  function updateHeight() {
+    const app = document.querySelector(".app");
+    app.style.height = `${window.innerHeight}px`;
+  }
+
+  // Listen for resize events
+  window.addEventListener("resize", updateHeight);
+
+  // Set initial height
+  updateHeight();
+
+
+
+
+
+
+  
+
+   Status button and pop-up code
   $(function () {
     $(".status-button:not(.open)").on("click", function (e) {
       $(".overlay-app").addClass("is-active");
