@@ -274,6 +274,9 @@ img {
 }
 
 .dark-light {
+  width: 32px;
+  height: 32px;
+
   position: fixed;
   bottom: 50px;
   right: 30px;
@@ -285,17 +288,13 @@ img {
   cursor: none;
 }
 .dark-light svg {
-  width: 24px;
-  flex-shrink: 0;
-  fill: #ffce45;
-  stroke: #fff;
+
+  scale: 1.4;
+
+  fill: #1e59f1;
   transition: 0.5s;
 }
 
-.light-mode .dark-light svg {
-  fill: transparent;
-  stroke: var(--theme-color);
-}
 .light-mode .profile-img {
   border: 2px solid var(--theme-bg-color);
 }
