@@ -31,6 +31,12 @@ $(function () {
     $(this).addClass("is-active");
   });
 
+  // Function to adjust the height of ".app"
+  function adjustAppHeight() {
+    const app = document.querySelector(".app");
+    app.style.height = window.innerHeight + "px";
+  }
+
   // Fetch API code
   $(function () {
     function handleLinkClick(e) {
@@ -139,6 +145,8 @@ $(function () {
   });
 
   document.addEventListener("DOMContentLoaded", function () {
+    adjustAppHeight();
+
     var buttons = document.querySelectorAll(".expand-btn");
     if (buttons.length > 0) {
       buttons.forEach(function (btn) {
@@ -291,20 +299,6 @@ $(function () {
     }
   });
 
-  function adjustHeight() {
-    // Select the .app element
-    const app = document.querySelector(".app");
-
-    // Set the height of the .app element
-    app.style.height = `${window.innerHeight}px`;
-  }
-
-  // Call adjustHeight on load
-  window.addEventListener("load", adjustHeight);
-
-  // Update height when window resizes
-  window.addEventListener("resize", adjustHeight);
-
   /* Status button and pop-up code
   $(function () {
     $(".status-button:not(.open)").on("click", function (e) {
@@ -330,3 +324,6 @@ $(function () {
     document.body.classList.toggle("light-mode");
   });*/
 });
+
+// When the window is resized
+window.addEventListener("resize", adjustAppHeight);
