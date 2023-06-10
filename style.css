@@ -387,6 +387,11 @@ body.light-mode .video-bg:before {
   body {
     overflow: hidden;
   }
+
+  .app {
+    margin-bottom: 100px;
+  }
+
   .custom-cursor {
     display: none;
   }
