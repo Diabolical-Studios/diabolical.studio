@@ -291,6 +291,20 @@ $(function () {
     }
   });
 
+  function adjustHeight() {
+    // Select the .app element
+    const app = document.querySelector(".app");
+
+    // Set the height of the .app element
+    app.style.height = `${window.innerHeight}px`;
+  }
+
+  // Call adjustHeight on load
+  window.addEventListener("load", adjustHeight);
+
+  // Update height when window resizes
+  window.addEventListener("resize", adjustHeight);
+
   /* Status button and pop-up code
   $(function () {
     $(".status-button:not(.open)").on("click", function (e) {

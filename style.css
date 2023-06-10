@@ -386,9 +386,6 @@ body.light-mode .video-bg:before {
   .custom-cursor {
     display: none;
   }
-  .app {
-    margin-bottom: 100px;
-  }
 
   .desktop-video {
     display: none;
