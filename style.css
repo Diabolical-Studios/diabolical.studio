@@ -326,18 +326,20 @@ body.light-mode .video-bg:before {
   background-color: var(--theme-bg-color);
   max-width: 1250px;
   max-height: 860px;
-  height: 100vh;
+  height: calc(100vh - 70px); /* adjust the height here */
   display: flex;
   flex-direction: column;
   overflow: hidden;
   position: relative;
   width: 100%;
+  bottom: 20px; /* add your bottom padding */
   border-radius: 14px;
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   font-size: 15px;
   font-weight: 500;
 }
+
 
 .header {
   display: flex;

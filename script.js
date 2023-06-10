@@ -31,12 +31,6 @@ $(function () {
     $(this).addClass("is-active");
   });
 
-  // Function to adjust the height of ".app"
-  function adjustAppHeight() {
-    const app = document.querySelector(".app");
-    app.style.height = window.innerHeight + "px";
-  }
-
   // Fetch API code
   $(function () {
     function handleLinkClick(e) {
@@ -145,8 +139,6 @@ $(function () {
   });
 
   document.addEventListener("DOMContentLoaded", function () {
-    adjustAppHeight();
-
     var buttons = document.querySelectorAll(".expand-btn");
     if (buttons.length > 0) {
       buttons.forEach(function (btn) {
@@ -324,6 +316,3 @@ $(function () {
     document.body.classList.toggle("light-mode");
   });*/
 });
-
-// When the window is resized
-window.addEventListener("resize", adjustAppHeight);
