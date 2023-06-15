@@ -25,13 +25,10 @@ function drop(ev) {
 function checkGameResults() {
   var gameResults = document.getElementById("game-results");
   var div2Content = document.getElementById("div2").innerText;
-  var div3Content = document.getElementById("div3").innerText;
-  var div4Content = document.getElementById("div4").innerText;
-  var selectedGameTypes = div2Content + " " + div3Content + " " + div4Content;
 
-  if (div2Content && div3Content && div4Content) {
-    gameResults.innerText = "You enjoy " + selectedGameTypes + " games.";
-    showGameCards(selectedGameTypes);
+  if (div2Content) {
+    gameResults.innerText = " "+ div2Content + " games by Diabolical Studios";
+    showGameCards(div2Content);
   } else {
     gameResults.innerText = "";
     showGameCards("");
@@ -42,9 +39,9 @@ document.querySelectorAll(".draggable").forEach(function (draggable) {
   draggable.addEventListener("dragstart", drag);
 });
 
-document.querySelectorAll(".dropzone").forEach(function (dropzone) {
-  dropzone.addEventListener("drop", drop);
-  dropzone.addEventListener("dragover", allowDrop);
+document.querySelectorAll(".droppable").forEach(function (droppable) {
+  droppable.addEventListener("drop", drop);
+  droppable.addEventListener("dragover", allowDrop);
 });
 
 function showGameCards(selectedGameTypes) {
