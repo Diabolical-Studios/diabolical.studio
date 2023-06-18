@@ -327,26 +327,58 @@ document.addEventListener("DOMContentLoaded", (event) => {
       $("#input-line .prompt").html(currentUser + currentSystem);
     }
 
-    //Player dialogue and hints
-    function hideHint() {
-      if ($(hint_).is(":visible")) {
-        $("#hint-text").text("");
-        $(hint_).fadeOut("slow");
-      }
+    showDialogue("Diabolical", "What the?")
+      .then(() => showDialogue("Diabolical", "How did you get here??"))
+      .then(() =>
+        showDialogue(
+          "Diabolical",
+          "Looks like you've been looking at the server logs."
+        )
+      )
+      .then(() =>
+        showDialogue(
+          "Diabolical",
+          "Well then since you're here, I allow you to use the console for a short time."
+        )
+      )
+      .then(() =>
+        showHint(
+          'If you want to use the functions you can type "help" to gain access'
+        )
+      )
+      .then(() => showDialogue("Diabolical", "C'mon give it a try"))
+      .then(() => showHint('Use the "download" command to download games.'))
+      .catch(console.error);
+
+    function showDialogue(characterName, text) {
+      return new Promise((resolve, reject) => {
+        var index = 0;
+
+        // Append the character name
+        $("#dialogue-text").text(characterName + ": ");
+
+        var timer = setInterval(function () {
+          $("#dialogue-text").append(text.charAt(index));
+          index++;
+          if (index > text.length) {
+            clearInterval(timer);
+            setTimeout(() => {
+              resolve();
+            }, 2000); // Increase this delay if needed
+          }
+        }, 100);
+        $(dialogue_).show();
+      });
     }
 
-    function showHint(s) {
-      $("#hint-text").text(s);
-      $(hint_).fadeIn("slow");
-    }
-
-    function showDialogue(characterName, text, duration) {
-      //$('#character-photo')
-      $("#dialogue-text").text(characterName + ": " + text);
-      $(dialogue_).fadeIn("slow");
-      setTimeout(function () {
-        $(dialogue_).fadeOut("slow");
-      }, duration);
+    function showHint(text) {
+      return new Promise((resolve, reject) => {
+        $(hint_).text(text);
+        $(hint_).show();
+        setTimeout(() => {
+          resolve();
+        }, 4000); // 3 seconds to show the hint, and 1 second delay after it
+      });
     }
 
     function hideBlurb() {
@@ -375,47 +407,5 @@ document.addEventListener("DOMContentLoaded", (event) => {
     }
 
     hideBlurb();
-
-    setTimeout(function () {
-      showHint('If you want to see the files on disk use the "ls" code');
-    }, 1000);
-
-    setTimeout(function () {
-      showDialogue("Diabolical", "What the?", 1000);
-    }, 2000); // Start immediately
-
-    setTimeout(function () {
-      showDialogue("Diabolical", "How did you get here??", 2500);
-    }, 4000); // 1000 (previous message duration)
-
-    setTimeout(function () {
-      showDialogue(
-        "Diabolical",
-        "Looks like you've been looking at the server logs.",
-        5000
-      );
-    }, 10500); // 1000 (previous duration) + 2500 (previous delay)
-
-    setTimeout(function () {
-      showDialogue(
-        "Diabolical",
-        "Well then since you're here, I allow you to use the console for a short time.",
-        6500
-      );
-    }, 17500); // 3500 (previous total time) + 5000 (previous delay)
-
-    setTimeout(function () {
-      showHint(
-        'If you want to use the functions you can type "help" to gain access'
-      );
-    }, 8000); // 8500 (previous total time) + 6500 (previous delay)
-
-    setTimeout(function () {
-      showHint('Use the "download" command to download games.');
-    }, 16000); // 8500 (previous total time) + 6500 (previous delay)
-
-    setTimeout(function () {
-      showDialogue("Diabolical", "C'mon give it a try", 6000);
-    }, 25000); // The last hint doesn't have a duration so we use the previous total time
   });
 });
