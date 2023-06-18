@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="./style.css" />
 
   <meta name="viewport"
-    content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1, user-scalable=0" />
+    content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1.0, user-scalable=no, height=device-height"/>
   <meta name="theme-color" content="#222222" />
 </head>
 
@@ -308,6 +308,11 @@
         });
       }
     });
+  </script>
+  <script type="text/javascript">
+    document.addEventListener('touchmove', function (event) {
+      if (event.scale !== 1) { event.preventDefault(); }
+    }, { passive: false });
   </script>
 </body>
 
