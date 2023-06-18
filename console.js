@@ -1,13 +1,3 @@
-window.addEventListener('DOMContentLoaded', (event) => {
-  const inputs = document.querySelectorAll('input');
-  for (let i = 0; i < inputs.length; i++) {
-      inputs[i].addEventListener('focus', (event) => {
-          event.preventDefault();
-      });
-  }
-});
-
-
 document.addEventListener("DOMContentLoaded", (event) => {
   let consoleDiv = document.getElementById("app");
   // Your code here
@@ -149,6 +139,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
         output_.appendChild(line);
 
         var args = this.value.split(" ");
+        // Convert the command to lower case
+        args[0] = args[0].toLowerCase();
         var cmd = args[0];
         var fullCmd = args.join(" ");
         switch (cmd) {
