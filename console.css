@@ -12,7 +12,7 @@ body{
   color:black;
 }
 .help-info{
-  color:white;
+  color:#00d200;
 }
 .input-line {
   display: -webkit-box;
@@ -58,9 +58,6 @@ body{
   color: inherit;
 }
 
-#container {
-  padding: .1em 1.5em 1em 1em;
-}
 #container output {
   clear: both;
   width: 100%;
