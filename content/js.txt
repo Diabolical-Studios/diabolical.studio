@@ -1,13 +1,3 @@
-window.addEventListener('DOMContentLoaded', (event) => {
-  const inputs = document.querySelectorAll('input');
-  for (let i = 0; i < inputs.length; i++) {
-      inputs[i].addEventListener('focus', (event) => {
-          event.preventDefault();
-      });
-  }
-});
-
-
 document.addEventListener("DOMContentLoaded", (event) => {
   let consoleDiv = document.getElementById("app");
   // Your code here
