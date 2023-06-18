@@ -160,6 +160,10 @@ document.addEventListener("DOMContentLoaded", (event) => {
             }
             break;
 
+          case "whoami":
+            output("<p>" + currentUser + "</p>");
+            break;
+
           case "help":
             output('<div class="ls-files">' + CMDS_.join("<br>") + "</div>");
             break;
@@ -197,7 +201,11 @@ document.addEventListener("DOMContentLoaded", (event) => {
               output("Usage: " + cmd + " password.txt");
             } else {
               openFile(args[1]);
-              showDialogue("You", "No... NOOOO! You better forget that right now!", 5000);
+              showDialogue(
+                "You",
+                "No... NOOOO! You better forget that right now!",
+                5000
+              );
             }
             if (beenCat) {
               hideHint();
@@ -356,10 +364,9 @@ document.addEventListener("DOMContentLoaded", (event) => {
       if (results == 1) {
         return array[returnIndex];
       } else {
-        return "password.txt";  // return an empty string if no match or multiple matches are found
+        return "password.txt"; // return an empty string if no match or multiple matches are found
       }
     }
-    
 
     function generateHackerHistory() {
       output(HACKERHISTORY_);
@@ -368,9 +375,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     hideBlurb();
 
     setTimeout(function () {
-      showHint(
-        'If you want to see the files on disk use the "ls" code'
-      );
+      showHint('If you want to see the files on disk use the "ls" code');
     }, 1000);
 
     setTimeout(function () {
