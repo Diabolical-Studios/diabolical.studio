@@ -112,3 +112,40 @@ input[type="button"]{
   color:white;
   word-wrap: break-word;
 }
+
+@media screen and (max-width: 600px) {
+  body {
+    font-size: 12px;
+  }
+
+  #dialogue {
+    width: 100%;
+    padding-bottom: 10px;
+  }
+
+  #dialogue-text {
+    font-size: 16px;
+    margin-left: 50px;
+  }
+
+  #hint{
+    position: static; /* Reset positioning to the default (not absolute) */
+    max-width: 100%; /* Allow the hint to use the full width of the screen */
+    padding: 5px;
+    color:red;
+    word-wrap: break-word;
+  }
+
+  #container {
+    padding: .1em .5em .5em .5em;
+  }
+
+  input[type="button"] {
+    padding:10px;
+  }
+  
+  #character-photo-container img {
+    height: 45px;
+    top: -25px;
+  }
+}
