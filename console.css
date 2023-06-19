@@ -63,7 +63,7 @@ body{
 }
 
 #container {
-  margin-bottom: 150px;
+  margin-bottom: 250px;
 }
 
 #container output {
@@ -148,6 +148,7 @@ input[type="button"]{
 
   #container {
     padding: .1em .5em .5em .5em;
+    margin-bottom: 150px;
   }
 
   input[type="button"] {

@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
   // Your code here
 
   $(function () {
+    var waitingForMatrixAnswer = false;
     var startTime = new Date();
     var endTime = new Date();
     endTime.setMinutes(startTime.getMinutes() + 15);
@@ -30,7 +31,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
       "clear",
       "clock",
       "date",
-      "echo",
       "help",
       "uname",
       "whoami",
@@ -107,6 +107,39 @@ document.addEventListener("DOMContentLoaded", (event) => {
     cmdLine_.addEventListener("keydown", processInput, false);
     generateHackerHistory();
 
+    var riddles = [
+      {
+        question: "I am a prince without a kingdom, an enemy hidden in plain sight. I entice with power, ensnare with wealth, but in the end, I only bring despair. Who am I?",
+        answer: "devil"
+      },
+      {
+        question: "I whisper in your ear, a promise of power and glory. Yet, follow me, and I lead you astray, into a world of chaos and ruin. Who am I?",
+        answer: "temptation"
+      },
+      {
+        question: "I am the mother of sin, the daughter of defiance. I can seduce a saint, and corrupt an angel. Who am I?",
+        answer: "lust"
+      },
+      {
+        question: "I rule in the depths, beneath the world of man. My kingdom is of fire and pain. Who am I?",
+        answer: "hell"
+      },
+      {
+        question: "In shadows, I whisper, a serpent in the dark. I am the enemy of light, the devourer of good. Who am I?",
+        answer: "demon"
+      },
+      {
+        question: "I am a cloak, a shield for the wicked. I hide the truth and shroud the light. Who am I?",
+        answer: "deception"
+      },
+      // Add more riddles as needed.
+    ];
+
+
+    var askedRiddles = [];
+    var correctRiddleAnswers = 0;
+    var waitingForContinueAnswer = false;
+
     function processInput(e) {
       // manage history
       if (e.keyCode == 9) {
@@ -143,6 +176,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
         args[0] = args[0].toLowerCase();
         var cmd = args[0];
         var fullCmd = args.join(" ");
+
         switch (cmd) {
           case "su":
             if (!args[2]) {
@@ -163,17 +197,13 @@ document.addEventListener("DOMContentLoaded", (event) => {
             break;
 
           case "run":
-            if (args[1] === "matrix") {
-              var answer = prompt(
-                "I speak without a mouth and hear without ears. I have no body, but I come alive with wind. What am I?"
-              );
-            }
-            if (answer.toLowerCase() === "echo") {
-              output(
-                "Congratulations, you're one step closer. Next, try run('Echo')."
-              );
+            if (args[1] === "riddle.exe") {
+              startRiddleGame();
+            } else if (args[1] === "matrix.exe") {
+              // The previous matrix command.
+              output("A bunch of green symbols are falling on your screen...");
             } else {
-              output("Try again!");
+              output("Unknown command: " + args[1]);
             }
             break;
 
@@ -233,14 +263,76 @@ document.addEventListener("DOMContentLoaded", (event) => {
               beenCat = true;
             }
             break;
+
+          case "yes":
+            if (waitingForContinueAnswer) {
+              startRiddleGame();
+            } else {
+              output("Unknown command: " + cmd);
+            }
+            break;
+
+          case "no":
+            if (waitingForContinueAnswer) {
+              output("Alright. You have won " + correctRiddleAnswers + " points.");
+              correctRiddleAnswers = 0;
+              waitingForContinueAnswer = false;
+              askedRiddles = [];
+            } else {
+              output("Unknown command: " + cmd);
+            }
+            break;
+
           default:
-            output("unknown command : " + args);
+            if (waitingForMatrixAnswer) {
+              // If the user is answering a riddle, check if the answer is correct.
+              if (cmd === correctMatrixAnswer) {
+                output("Riddle Solved");
+                correctRiddleAnswers++;
+                if (correctRiddleAnswers >= 3) {
+                  // Delay the redirect by 5 seconds (5000 milliseconds)
+                  output("Encryption cracked. Redirecting...");
+                  setTimeout(redirectToDemoPage, 3000);
+                } else {
+                  output("Continue? (yes/no)");
+                }
+                waitingForContinueAnswer = true;
+              } else {
+                output("That's not correct. Try again!");
+              }
+              waitingForMatrixAnswer = false;
+            } else {
+              output("Unknown command: " + cmd);
+            }
             break;
         }
         window.scrollTo(0, getDocHeight_());
         this.value = ""; // clear the input
       }
     }
+
+    function startRiddleGame() {
+      if (riddles.length === 0) {
+        output("No more riddles left. You've solved them all!");
+      }
+
+      // Pick a random riddle from the list.
+      var riddleIndex = Math.floor(Math.random() * riddles.length);
+      var riddle = riddles[riddleIndex];
+
+      // Remove the chosen riddle from the list.
+      riddles.splice(riddleIndex, 1);
+
+      // Output the riddle question and wait for the answer.
+      output(riddle.question);
+      waitingForMatrixAnswer = true;
+      correctMatrixAnswer = riddle.answer;
+    }
+
+    function redirectToDemoPage() {
+      window.location.href = 'https://demo-url.com'; // replace with your URL
+    }
+
 
     function downloadPotato() {
       var link = document.createElement("a");
@@ -326,7 +418,24 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
     function output(e) {
       output_.insertAdjacentHTML("beforeEnd", "<p>" + e + "</p>");
-    }
+      let paragraphs = output_.querySelectorAll('p');
+      let lastParagraph = paragraphs[paragraphs.length - 1];
+      applyTypewriterEffect(lastParagraph);
+  }
+  
+  function applyTypewriterEffect(p) {
+      let text = p.textContent;
+      p.textContent = '';
+      let i = 0;
+      let intervalId = setInterval(function() {
+          p.textContent += text[i];
+          i++;
+          if(i >= text.length) {
+              clearInterval(intervalId);
+          }
+      }, 30); // Speed of typewriter in milliseconds
+  }
+  
 
     function getDocHeight_() {
       var d = document;
@@ -353,7 +462,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
       .then(() =>
         showDialogue(
           "Diabolical",
-          "Well then since you're here, I allow you to use the console for a short time."
+          "Well then since you're already here, I might aswell allow you to use the console for a short time."
         )
       )
       .then(() =>
@@ -361,7 +470,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
           'If you want to use the functions you can type "help" to gain access'
         )
       )
-      .then(() => showDialogue("Diabolical", "C'mon give it a try"))
+      .then(() => showDialogue("Diabolical", "C'mon give it a try. Just dont type 'run riddle.exe'"))
       .then(() => showHint('Use the "download" command to download games.'))
       .catch(console.error);
 
@@ -381,7 +490,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
               resolve();
             }, 2000); // Increase this delay if needed
           }
-        }, 100);
+        }, 50);
         $(dialogue_).show();
       });
     }
