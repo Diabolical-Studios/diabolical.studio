@@ -133,6 +133,12 @@ $(function () {
     }
   });
 
+  $('.card').on('click', function() {
+    var $socialIcons = $(this).find('.social-icons');
+    $socialIcons.toggle();  // This will show the icons if they're hidden, and hide them if they're shown
+  });
+  
+
   // Overlay code
   $(function () {
     $(".dropdown").on("click", function (e) {
