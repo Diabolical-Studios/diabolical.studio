@@ -162,6 +162,21 @@ document.addEventListener("DOMContentLoaded", (event) => {
             }
             break;
 
+          case "run":
+            if (args[1] === "matrix") {
+              var answer = prompt(
+                "I speak without a mouth and hear without ears. I have no body, but I come alive with wind. What am I?"
+              );
+            }
+            if (answer.toLowerCase() === "echo") {
+              output(
+                "Congratulations, you're one step closer. Next, try run('Echo')."
+              );
+            } else {
+              output("Try again!");
+            }
+            break;
+
           case "whoami":
             output("<p>" + currentUser + "</p>");
             break;
