@@ -118,6 +118,8 @@ input[type="button"]{
   position:relative;
   text-align:left;
   font-size:20px;
+  font-family: 'Bungee';
+  font-weight: 100;
   color:white;
   word-wrap: break-word;
 }
@@ -162,7 +164,7 @@ input[type="button"]{
   }
 
   #character-photo-container img {
-    height: 45px;
+    height: 65px;
     margin-right: 10px;
   }
 }
