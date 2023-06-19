@@ -913,7 +913,7 @@ body.light-mode .video-bg:before {
   overflow: auto;
   background-color: var(--theme-bg-color);
 
-  border-radius: 14px;
+  border-radius: 0px 0px 14px 14px;
 }
 @media screen and (max-width: 510px) {
   .content-wrapper {
