@@ -9,10 +9,22 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="./style.css" />
+  <link rel="icon" href="content/icon/favicon.ico" type="image/x-icon">
 
+  <meta property="og:title" content="Diabolical Studios - Professional Game Design Services" />
+  <meta property="og:description"
+    content="A team of 7 professionals with a combined 12 years of experience in game design." />
+  <meta property="og:image" content="https://diabolical.services/your-image.jpg" />
+  <meta property="og:url" content="https://diabolical.services" />
+
+
+
+  <meta name="robots" content="index, follow">
   <meta name="viewport"
     content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1.0, user-scalable=no, height=device-height" />
   <meta name="theme-color" content="#222222" />
+  <meta name="description"
+    content="Diabolical Studios | A team of 7 professionals with a combined 12 years of experience in game design. Specializing in 2D & 3D design, game development, UI/UX design, and lighting design.">
 </head>
 
 <body>
@@ -136,7 +148,7 @@
                 12 years in the game design industry.
               </div>
             </div>
-            <img class="content-wrapper-img" src="content/Logo.png" alt="" />
+            <img class="content-wrapper-img" src="content/Logo.png" alt="the logo of diabolical studios" />
           </div>
           <div class="content-section">
             <div class="content-section-title">Previous Projects</div>
@@ -340,6 +352,21 @@
       if (event.scale !== 1) { event.preventDefault(); }
     }, { passive: false });
   </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Diabolical Studios",
+      "url": "https://diabolical.services",
+      "logo": "https://diabolical.services/logo.png",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+1-123-456-7890",
+        "contactType": "Customer service"
+      }
+    }
+    </script>
+
 </body>
 
 </html>
