@@ -890,6 +890,7 @@ body.light-mode .video-bg:before {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
+  max-width: -webkit-fill-available;
 }
 
 .menu-link-main {
