@@ -109,32 +109,35 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
     var riddles = [
       {
-        question: "I am a prince without a kingdom, an enemy hidden in plain sight. I entice with power, ensnare with wealth, but in the end, I only bring despair. Who am I?",
-        answer: "devil"
-      },
-      {
-        question: "I whisper in your ear, a promise of power and glory. Yet, follow me, and I lead you astray, into a world of chaos and ruin. Who am I?",
-        answer: "temptation"
-      },
-      {
-        question: "I am the mother of sin, the daughter of defiance. I can seduce a saint, and corrupt an angel. Who am I?",
+        question: "I am the silent whisper in the heart, leading even the wise astray, an insatiable desire that can never be quenched. What am I?",
         answer: "lust"
       },
       {
-        question: "I rule in the depths, beneath the world of man. My kingdom is of fire and pain. Who am I?",
-        answer: "hell"
+        question: "I consume without satisfaction, always hungry, never full. I turn nourishment into a vice. What am I?",
+        answer: "gluttony"
       },
       {
-        question: "In shadows, I whisper, a serpent in the dark. I am the enemy of light, the devourer of good. Who am I?",
-        answer: "demon"
+        question: "I am the never-ending hunger for what is not yours. I am the desire that impoverishes, as it accumulates. What am I?",
+        answer: "greed"
       },
       {
-        question: "I am a cloak, a shield for the wicked. I hide the truth and shroud the light. Who am I?",
-        answer: "deception"
+        question: "In stillness I flourish, a thief of time and potential. I am the chain that holds you down. What am I?",
+        answer: "sloth"
       },
-      // Add more riddles as needed.
+      {
+        question: "I am the flame that consumes reason, turning love into violence, justice into revenge. What am I?",
+        answer: "wrath"
+      },
+      {
+        question: "In the success of others, I find my voice, souring joy with discontent. I am the shadow on every achievement. What am I?",
+        answer: "envy"
+      },
+      {
+        question: "I am the crown of self, blinding you to your own faults, lifting you above all others in your own mind. What am I?",
+        answer: "pride"
+      }
     ];
-
+    
 
     var askedRiddles = [];
     var correctRiddleAnswers = 0;
