@@ -137,7 +137,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
         answer: "pride"
       }
     ];
-    
+
 
     var askedRiddles = [];
     var correctRiddleAnswers = 0;
@@ -424,21 +424,21 @@ document.addEventListener("DOMContentLoaded", (event) => {
       let paragraphs = output_.querySelectorAll('p');
       let lastParagraph = paragraphs[paragraphs.length - 1];
       applyTypewriterEffect(lastParagraph);
-  }
-  
-  function applyTypewriterEffect(p) {
+    }
+
+    function applyTypewriterEffect(p) {
       let text = p.textContent;
       p.textContent = '';
       let i = 0;
-      let intervalId = setInterval(function() {
-          p.textContent += text[i];
-          i++;
-          if(i >= text.length) {
-              clearInterval(intervalId);
-          }
+      let intervalId = setInterval(function () {
+        p.textContent += text[i];
+        i++;
+        if (i >= text.length) {
+          clearInterval(intervalId);
+        }
       }, 30); // Speed of typewriter in milliseconds
-  }
-  
+    }
+
 
     function getDocHeight_() {
       var d = document;
@@ -456,6 +456,11 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
     showDialogue("Diabolical", "What the?")
       .then(() => showDialogue("Diabolical", "How did you get here??"))
+
+    showHint(
+      'If you want to use the functions you can type "help" to gain access'
+    )
+
       .then(() =>
         showDialogue(
           "Diabolical",
@@ -468,13 +473,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
           "Well then since you're already here, I might aswell allow you to use the console for a short time."
         )
       )
-      .then(() =>
-        showHint(
-          'If you want to use the functions you can type "help" to gain access'
-        )
-      )
       .then(() => showDialogue("Diabolical", "C'mon give it a try. Just dont type 'run riddle.exe'"))
-      .then(() => showHint('Use the "download" command to download games.'))
+      .then(() => showHint('Note to self: Do NOT let anyone type "run riddle.exe" in the console.'))
       .catch(console.error);
 
     function showDialogue(characterName, text) {
@@ -493,7 +493,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
               resolve();
             }, 2000); // Increase this delay if needed
           }
-        }, 50);
+        }, 40);
         $(dialogue_).show();
       });
     }
