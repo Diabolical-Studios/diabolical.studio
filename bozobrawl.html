@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Diabolical Studios</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css" />
+  <link rel="stylesheet" href="./style.css" />
+
+  <style>
+    .column-list {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: nowrap;
+    }
+
+    .numbered-list {
+      padding-left: 40px;
+    }
+
+    figure {
+      margin: 20px 0px;
+    }
+
+    video {
+      border-radius: 14px;
+    }
+
+    ol {
+      padding: 0px;
+    }
+
+    .sans {
+			font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
+		}
+
+		.code {
+			font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace;
+		}
+
+		.serif {
+			font-family: Lyon-Text, Georgia, ui-serif, serif;
+		}
+
+		.mono {
+			font-family: iawriter-mono, Nitti, Menlo, Courier, monospace;
+		}
+
+		.pdf .sans {
+			font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP';
+		}
+
+		.pdf:lang(zh-CN) .sans {
+			font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC';
+		}
+
+		.pdf:lang(zh-TW) .sans {
+			font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC';
+		}
+
+		.pdf:lang(ko-KR) .sans {
+			font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR';
+		}
+
+		.pdf .code {
+			font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP';
+		}
+
+		.pdf:lang(zh-CN) .code {
+			font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC';
+		}
+
+		.pdf:lang(zh-TW) .code {
+			font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC';
+		}
+
+		.pdf:lang(ko-KR) .code {
+			font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR';
+		}
+
+		.pdf .serif {
+			font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP';
+		}
+
+		.pdf:lang(zh-CN) .serif {
+			font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC';
+		}
+
+		.pdf:lang(zh-TW) .serif {
+			font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC';
+		}
+
+		.pdf:lang(ko-KR) .serif {
+			font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR';
+		}
+
+		.pdf .mono {
+			font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP';
+		}
+
+		.pdf:lang(zh-CN) .mono {
+			font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC';
+		}
+
+		.pdf:lang(zh-TW) .mono {
+			font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC';
+		}
+
+		.pdf:lang(ko-KR) .mono {
+			font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR';
+		}
+
+  </style>
+</head>
+
+<body>
+  <div class="content-wrapper-header">
+    <div class="content-wrapper-context">
+      <h3 class="img-content">BOZO BRAWL GDD</h3>
+    </div>
+  </div>
+  <div class="content-section">
+    <html>
+
+    <body>
+      <article id="b0fd3935-faf2-4424-8a0c-0c94141e41f5" class="page sans">
+        <div class="page-body">
+          <figure id="8e81fbc5-b627-4af8-ac84-f4e0c0c3dd60">
+            <video src="BozoBrawl/Sequence_01_3.mp4" type="video/mp4" autoplay
+              style="width: 100%; text-align: center;"></video>
+          </figure>
+          <h1 id="537ab087-0c4e-48f8-9fc2-afa3ff740a83" class=""><strong>1. Introduction/Summary</strong></h1>
+          <h2 id="0aa8a418-561d-4a15-af05-8c7fc2738dd5" class=""><strong>Title: Bozo Brawl</strong></h2>
+          <h3 id="0ab95aec-aefd-46f3-a9fb-3542e980d5f4" class=""><strong>Developed by: Diabolical Studios</strong></h3>
+          <h3 id="795e4f77-3fbc-4c60-b8af-6a7e649d331e" class="">Genre: Party Game</h3>
+          <hr id="dd769e36-76fc-4c4d-9823-1847629875c0" />
+          <p id="074bb435-4cc6-413a-bbeb-815f1cfbe4be" class=""><strong>Overview</strong></p>
+          <p id="d7fdb47a-4453-4b2a-9df6-943dddd23ea5" class="">Welcome to the chaotic, hilarious, and endlessly
+            entertaining world of Bozo Brawl! Bozo Brawl is a dynamic arena party game where you and your friends can
+            engage in a variety of mini-games, each with its own unique objectives and gameplay mechanics. The goal? To
+            be the ultimate winner, of course!</p>
+          <p id="e416b58a-bf3e-4705-a21b-50ae8eb14724" class=""><strong>Gameplay Loop</strong></p>
+          <ol type="1" id="425f7688-a4fd-4742-a1b7-e566895246ab" class="numbered-list" start="1">
+            <li>Players join a lobby with their friends.</li>
+          </ol>
+          <ol type="1" id="d6bacd97-869c-4fb5-b429-21e84357fbeb" class="numbered-list" start="2">
+            <li>The group selects a game mode from a diverse list of options.</li>
+          </ol>
+          <ol type="1" id="a66d7c2f-ad91-4238-adfb-665feb307113" class="numbered-list" start="3">
+            <li>The chosen mini-game begins, and players compete to achieve the specific goals of that mode.</li>
+          </ol>
+          <ol type="1" id="132d3f8d-b143-45dd-a02a-e171a0fed09d" class="numbered-list" start="4">
+            <li>Once the mini-game concludes, players return to the lobby.</li>
+          </ol>
+          <ol type="1" id="0f905580-6461-434e-9dea-5a8561e7e6f4" class="numbered-list" start="5">
+            <li>The group selects a new game mode, and the cycle repeats.</li>
+          </ol>
+          <p id="8aa4b801-43c6-4b6e-b831-a42d1190539a" class=""><strong>Objective</strong></p>
+          <p id="b4e6b9b3-fb5e-414a-937b-91e1453b6194" class="">The objective of Bozo Brawl is simple: have fun and aim
+            to win! Each game mode offers different goals, ranging from collecting the most items to being the last one
+            standing. The game is designed to keep players engaged, offering a fresh experience every time they return
+            to the lobby to select a new game mode.</p>
+          <p id="7f84efef-c3d3-4485-b269-0bf2f8f09121" class=""><strong>Target Audience</strong></p>
+          <p id="ead3ddc6-2828-4b28-80bc-a2f280534088" class="">Bozo Brawl is perfect for players who love social
+            experiences, quick matches, and a healthy dose of competition and little kids who want to have a fun time
+            with their mobile phones/tablets in their free time. Whether you&#x27;re hosting a game night or just
+            looking for a quick gaming session with friends, Bozo Brawl offers endless hours of laughter and excitement.
+          </p>
+          <h1 id="433600a6-bf41-47b8-a530-5084c5c26838" class=""><strong>2. Game Mechanics</strong></h1>
+          <hr id="8f94220b-babb-4fad-80b0-a5a8694af1a5" />
+          <h2 id="9a8c8d3e-b362-42b9-9523-39f517d1df0f" class=""><strong>Player Control Mechanics</strong></h2>
+          <p id="c31923dd-3045-4863-81bd-1fc2f0d0c8b0" class="">In Bozo Brawl, players have access to five core control
+            mechanics that govern their interactions within the game world:</p>
+          <ol type="1" id="32e73936-50be-4098-98b1-2f5e0655bc3a" class="numbered-list" start="1">
+            <li><strong>Run</strong>: Players can move quickly across the game environment.</li>
+          </ol>
+          <ol type="1" id="97bfeabf-a588-4a2a-8c54-eee3acdefc4f" class="numbered-list" start="2">
+            <li><strong>Jump</strong>: Allows players to navigate vertical spaces and avoid obstacles.<figure
+                id="6bcd760e-8f51-4c1c-a4f7-130ccdb65d6f">
+                <video src="BozoBrawl/BozoBrawl_1.mp4" type="video/mp4" autoplay
+                  style="width: 100%; text-align: center;"></video>
+              </figure>
+            </li>
+          </ol>
+          <ol type="1" id="7aea794c-62bb-48b4-959a-663ace91874b" class="numbered-list" start="3">
+            <li><strong>Punch</strong>: A basic attack to engage opponents and interact with objects.<figure
+                id="254537b1-ae29-476c-9c71-a883fcb07c56">
+                <video src="BozoBrawl/BozoBrawl.mp4" type="video/mp4" autoplay
+                  style="width: 100%; text-align: center;"></video>
+              </figure>
+            </li>
+          </ol>
+          <ol type="1" id="0e851e49-edb5-41d6-9bb4-751a8a6a4c77" class="numbered-list" start="4">
+            <li><strong>Grab</strong>: Players can grab onto objects or other players.</li>
+          </ol>
+          <ol type="1" id="54af9fcd-8ec8-4bb4-b610-5ad3b7948a53" class="numbered-list" start="5">
+            <li><strong>Throw</strong>: After grabbing, players have the option to throw objects or opponents.<figure
+                id="549f9f11-0bb4-41d9-8759-77cf341fe317">
+                <video src="BozoBrawl/BozoBrawl_2.mp4" type="video/mp4" autoplay
+                  style="width: 100%; text-align: center;"></video>
+              </figure>
+            </li>
+          </ol>
+          <p id="d2d414cf-ca6f-4215-a4ec-023f28410f91" class="">These mechanics serve as the foundation for gameplay and
+            are consistent across all game modes, providing a unified player experience.</p>
+          <hr id="33919776-4fea-4fd5-9389-f3fc520266c0" />
+          <h2 id="e357055d-e3f1-4bcd-8a2a-b10d30b6ab3e" class=""><strong>Dynamic Events</strong></h2>
+          <p id="8ad7aa4e-cc07-4d09-a8db-d6abb86d500f" class="">To spice things up and keep players on their toes, most
+            levels feature dynamic events that impact gameplay:</p>
+          <ol type="1" id="d41c49eb-a9d6-4be2-a0da-a58bdb251214" class="numbered-list" start="1">
+            <li><strong>Helicopter Wind</strong>: In certain levels, a helicopter flies by, creating strong winds that
+              push players around. The objective here is to maintain your footing and avoid being blown off a building.
+              <figure id="567e3f9e-c9a4-4c22-9a1e-85e858eff09c">
+                <video src="BozoBrawl/BozoBrawl.mp4" type="video/mp4" autoplay
+                  style="width: 100%; text-align: center;"></video>
+              </figure>
+            </li>
+          </ol>
+          <ol type="1" id="80f924f1-71b9-41d5-80b2-ef8da4ef5ea2" class="numbered-list" start="2">
+            <li><strong>Sunburn</strong>: In sun-exposed levels, players risk getting burned if they stay out of water
+              for too long. As the sun sets and night falls, the entire level becomes a safe zone for brawling.<figure
+                id="4df813ea-316b-465d-acd5-115bc70eb676">
+                <video src="BozoBrawl/BozoBrawl_4.mp4" type="video/mp4" autoplay
+                  style="width: 100%; text-align: center;"></video>
+              </figure>
+            </li>
+          </ol>
+          <p id="e7d2410a-6d49-4735-b2e6-557ebf2083d2" class="">These dynamic events add an extra layer of strategy and
+            excitement, forcing players to adapt their tactics on the fly. We’ll also be adding lots of new maps so that
+            means there will be even more dynamic events to come.</p>
+          <hr id="9d5dd44b-3511-441d-8af4-fca86be5389a" />
+          <h2 id="7f8ce7cc-0107-4c8d-a7fb-ac4d2ed08bad" class=""><strong>Interactions and Combat</strong></h2>
+          <h3 id="9031a0cb-292a-4123-80a5-fe9032a798ae" class=""><strong>Grab and Throw Objects</strong></h3>
+          <p id="dd69e1a5-3144-4427-a8be-0d197184a66f" class="">Players can interact with various objects in the game
+            environment. Grabbing and throwing objects can serve multiple purposes, such as creating obstacles or using
+            them as improvised weapons.</p>
+          <div id="2f976141-5821-4421-9d96-87f701f156e8" class="column-list">
+            <div id="a0c0a997-82a7-49de-b93d-6c3dd641bae8" style="width:50%" class="column">
+              <figure id="05f64aad-3c4f-41e3-92eb-3ec953f80eee">
+                <video src="BozoBrawl/Sequence_01_1.mp4" type="video/mp4" autoplay
+                  style="width: 100%; text-align: center;"></video>
+              </figure>
+              <p id="da3a54f3-ed30-425b-9ac5-c0ad8b75743a" class="">
+              </p>
+            </div>
+            <div id="8591a635-23ce-485b-ab49-afe25351e247" style="width:50%" class="column">
+              <figure id="73e42220-f653-4385-9fb0-0819ba431536">
+                <video src="BozoBrawl/Sequence_01_2.mp4" type="video/mp4" autoplay
+                  style="width: 100%; text-align: center;"></video>
+              </figure>
+            </div>
+          </div>
+          <h3 id="92b6b756-0eb5-40a3-9721-9e1d50f95ac9" class=""><strong>Grabbing Players</strong></h3>
+          <p id="1f50d7bb-2519-4fe7-9036-dd80fae1640a" class="">Players can also grab onto other players, either to
+            hinder their movement or to throw them into hazards.</p>
+          <h3 id="96277f0b-6877-48c9-922a-7d47dcd70c88" class=""><strong>Punch and Stun</strong></h3>
+          <p id="a6a9903e-2ba9-4328-b4f8-7743abb022b3" class="">A well-timed punch can stun an opponent, making them
+            vulnerable to further attacks or environmental hazards.</p>
+          <figure id="75937e58-defa-4a84-9659-14f51c0dcaa0">
+            <video src="BozoBrawl/Sequence_01.mp4" type="video/mp4" autoplay
+              style="width: 100%; text-align: center;"></video>
+          </figure>
+          <h1 id="fa5c78a2-4472-4ab0-88ab-f04f7aaf22a7" class=""><strong>3. Gameplay</strong></h1>
+          <hr id="e17eab7e-0bfb-4e13-82e2-5334b21dd498" />
+          <h2 id="99d0af16-efe3-47be-a83d-d18adc2ec62b" class=""><strong>Lobby Experience</strong></h2>
+          <p id="47efafb9-83cb-44f1-81c9-b97b2e647e39" class="">Before diving into the competitive chaos, players find
+            themselves in a free-roam lobby. Here, they can practice their basic moves—running, jumping, punching,
+            grabbing, and throwing—while interacting with other players. Think of it as a sandbox where you can mess
+            around and get a feel for the controls.</p>
+          <hr id="e4a85c98-73ec-4797-84cf-50bbae72066a" />
+          <h2 id="4b886729-c8d0-4421-a901-22f1c548a065" class=""><strong>Starting a Game</strong></h2>
+          <p id="f6dc7d3f-7790-440f-94e9-71a60d0146f7" class="">To kick off the action, players enter a designated door
+            in the lobby. This triggers the game mode selection screen, where the group chooses which mini-game
+            they&#x27;d like to play first.</p>
+          <hr id="5294cf12-db8b-4c33-ab50-36292f2620c0" />
+          <h2 id="71ac750f-b93a-4130-a234-f29301e03a79" class=""><strong>Core Gameplay</strong></h2>
+          <p id="83336705-5ad8-4fc4-a277-bc98e36ffcd3" class="">Once a game mode is selected, players are transported to
+            the corresponding level. Regardless of the specific objectives of each mini-game, the core mechanics (punch,
+            run, grab, throw, jump) remain consistent. Players use these actions to mess with each other and achieve the
+            goals of the chosen game mode.</p>
+          <h3 id="f362d580-a818-46d3-9034-d986c9915753" class=""><strong>Environmental Interactions</strong></h3>
+          <p id="c0c4ed1e-8ae3-4165-a538-33c04afd104d" class="">Many levels feature dynamic events or environmental
+            assets that players can use to their advantage. Whether it&#x27;s dodging helicopter winds or fighting in a
+            water pit to avoid sunburn, these elements add an extra layer of strategy and unpredictability.</p>
+          <hr id="fdaa5d93-d3ff-4f9c-aacb-8d4d3dfeb5f6" />
+          <h2 id="c1434cc5-88a6-4ab0-ab85-1c16af0efa38" class=""><strong>Redemption Mini-Game</strong></h2>
+          <p id="9760a5d5-d3f6-4446-9cee-771df3b716f0" class="">After each round, a special mini-game level is
+            triggered. The player who scored the lowest in the previous game gets a &quot;redemption chance&quot; to
+            earn extra points. However, they&#x27;ll have to overcome a level where every other player is pitted against
+            them. It&#x27;s a high-risk, high-reward scenario that keeps everyone engaged, regardless of their
+            performance in the previous round.</p>
+          <hr id="48e17c4f-76fd-4ea1-96f9-ebfac38d8da1" />
+          <h2 id="bbbd5e03-066e-462d-ac77-b0360b7be8c7" class=""><strong>Game Loop Summary</strong></h2>
+          <ol type="1" id="95235c52-40b0-4982-8a9f-2d50efc64261" class="numbered-list" start="1">
+            <li>Players enter the lobby and mess around.</li>
+          </ol>
+          <ol type="1" id="123f279a-6b94-4c65-8bef-d7ce86db5e43" class="numbered-list" start="2">
+            <li>The group chooses a game mode.</li>
+          </ol>
+          <ol type="1" id="1dc3380e-40dc-4019-a0d2-7582f2ae02fd" class="numbered-list" start="3">
+            <li>Players compete in the selected mini-game.</li>
+          </ol>
+          <ol type="1" id="fa5367fd-3ca8-41db-92be-af738a2517e3" class="numbered-list" start="4">
+            <li>Dynamic events and environmental assets come into play.</li>
+          </ol>
+          <ol type="1" id="1520c7c8-28aa-4adf-92f2-89cd9917b87d" class="numbered-list" start="5">
+            <li>The game concludes, and points are tallied.</li>
+          </ol>
+          <ol type="1" id="a59ec9df-d8ed-48a1-a522-31e645f2f87b" class="numbered-list" start="6">
+            <li>A redemption mini-game is triggered for the lowest-scoring player.</li>
+          </ol>
+          <ol type="1" id="c368d877-777d-4cd8-8a6c-47611a7aa2d5" class="numbered-list" start="7">
+            <li>Players return to the lobby to select a new game mode.</li>
+          </ol>
+          <ol type="1" id="0ad5190a-89a1-4f07-a14c-e1c62d0d3100" class="numbered-list" start="8">
+            <li>Repeat steps 3-7 until the game session ends.</li>
+          </ol>
+          <h1 id="794aaffb-3576-46b4-9335-e086b00e2d84" class=""><strong>5. Art Style</strong></h1>
+          <hr id="bc3aff7a-2ebe-499c-b0c1-887d7a8042b5" />
+          <h2 id="c78748ce-7f21-44d7-b2d5-96942d596d44" class=""><strong>General Aesthetic</strong></h2>
+          <p id="123e5ede-93a7-454e-9674-b9ab28bcbe47" class="">Bozo Brawl boasts a low-poly, stylized art direction.
+            The overall look and feel is &quot;rubbery,&quot; giving the game a playful, whimsical atmosphere that
+            complements its party-game nature.</p>
+          <hr id="7f97fa32-cf37-4522-b539-786f5696bbd3" />
+          <h2 id="5f5b8dfe-f5db-4a3b-b7ec-40203fb00e69" class=""><strong>Character Design</strong></h2>
+          <p id="1a8efb52-e64a-4543-a2c8-4417eae6a134" class="">The main characters are designed to be cute and goofy,
+            resembling fast-moving pears with exaggerated, elongated arms, fingers, and legs. Their quirky appearance
+            sets the tone for the lighthearted, chaotic gameplay.</p>
+          <figure id="1647df57-fe0c-4151-bbe6-ebd7ea4b9d23" class="image"><a href="BozoBrawl/Untitled.png"><img
+                style="width:240px" src="BozoBrawl/Untitled.png" /></a>
+          </figure>
+          <h3 id="af823544-7d3f-458a-ac30-cf1d4c903d00" class=""><strong>Skins</strong></h3>
+          <p id="211f3574-95aa-4661-a044-f5d3f8cb6620" class="">Players have the option to collect or purchase skins to
+            customize their characters. These skins range from simple color changes to more elaborate designs, allowing
+            players to make their characters even cuter or goofier according to their personal taste.</p>
+          <div id="b5594752-acda-4034-82a0-a04596772773" class="column-list">
+            <div id="b71d10f6-11ca-42d0-bfe5-3efd9edc6b06" style="width:33.33333333333333%" class="column">
+              <figure id="bd2365b7-2444-4c74-a3b7-48e505e73963" class="image"><a href="BozoBrawl/Untitled%201.png"><img
+                    style="width:240px" src="BozoBrawl/Untitled%201.png" /></a>
+              </figure>
+            </div>
+            <div id="3d4f387b-b63b-4746-a989-b4587140f0a1" style="width:33.33333333333333%" class="column">
+              <figure id="5469845a-aabb-451b-ac94-dcb8a3c4428e" class="image"><a href="BozoBrawl/Untitled%202.png"><img
+                    style="width:700px" src="BozoBrawl/Untitled%202.png" /></a>
+              </figure>
+            </div>
+            <div id="c0114af9-2482-4747-883d-93294a568722" style="width:33.33333333333333%" class="column">
+              <figure id="3278eacb-3e82-479d-b80e-5a321058a79f" class="image"><a href="BozoBrawl/Untitled%203.png"><img
+                    style="width:240px" src="BozoBrawl/Untitled%203.png" /></a>
+              </figure>
+            </div>
+          </div>
+          <hr id="328ea8f9-a271-4917-9484-2c2033f6539a" />
+          <h2 id="fc37f180-8139-44cc-b84a-5c9bdf965913" class=""><strong>Level Design</strong></h2>
+          <h3 id="824cb174-1ef7-4d71-895b-699a9dc664fc" class=""><strong>Oasis Island</strong></h3>
+          <p id="a7940741-e481-4b2b-b6a4-da199a634d28" class="">This map transports players to a tropical paradise,
+            complete with palm trees, sandy beaches. The low-poly aesthetic is maintained, but the environment is rich
+            in color and detail.</p>
+          <figure id="02a22664-e7f5-4cbd-98c7-9619a9a2c1f5" class="image"><a href="BozoBrawl/Untitled%204.png"><img
+                style="width:2282px" src="BozoBrawl/Untitled%204.png" /></a>
+          </figure>
+          <h3 id="a4da53aa-169b-4ef4-a988-de8609e38a60" class=""><strong>Cyberpunk City</strong></h3>
+          <p id="45556fd5-255f-4c0e-ba01-3d3fb67d0df7" class="">In stark contrast, the Cyberpunk City map offers a
+            darker, more futuristic setting. Neon lights, towering skyscrapers, and digital billboards create a visually
+            stimulating playground.</p>
+          <figure id="359b8b15-c5d8-4811-ab38-7e95a364de0a" class="image"><a href="BozoBrawl/Untitled%205.png"><img
+                style="width:672px" src="BozoBrawl/Untitled%205.png" /></a>
+          </figure>
+          <hr id="8d5fa2f5-8a9e-4bed-a1a0-69f62ecf1d1b" />
+          <h2 id="4f790e48-f2af-4077-aea9-445b2d5e94b2" class=""><strong>Dynamic Elements</strong></h2>
+          <p id="e7b4eb3c-9471-4306-b12f-4f040cc3b15e" class="">Both the characters and the environments are designed to
+            interact seamlessly with the game&#x27;s dynamic events. Whether it&#x27;s the rubbery characters struggling
+            against a helicopter&#x27;s wind or scrambling to stay inside the water in the Oasis Island map, the art
+            style is integral to the gameplay experience.</p>
+          <h1 id="d27b8a80-3e2f-4a0b-b8b7-cf24e3d0373e" class=""><strong>6. Technology</strong></h1>
+          <hr id="5f116b6d-28f0-46ea-bf9c-a8aa19346c49" />
+          <h2 id="053b1fde-c13a-42a1-b2c1-ce8543f30b8f" class=""><strong>Engine</strong></h2>
+          <p id="ea97466a-c0bd-484b-9f70-19302cb684df" class="">Bozo Brawl is developed using the Unity engine, chosen
+            for its flexibility, robust community support, and ease of use for both 2D and 3D game development.</p>
+          <hr id="ee70209a-ba62-408e-ae12-cc134484c768" />
+          <h2 id="015b0c3e-b189-4984-b023-6a5e7b4f6a22" class=""><strong>Graphics and Visual Effects</strong></h2>
+          <div id="075c58ed-e49e-4f2f-a4e5-15eccd000e41" class="column-list">
+            <div id="2b3c5eb7-6f61-4740-a8e1-967647bee3dd" style="width:33.333333333333336%" class="column">
+              <figure id="3d0eae7d-0d5e-41b7-8c9e-bf6678dfecf5" class="image"><a href="BozoBrawl/Untitled%206.png"><img
+                    style="width:288px" src="BozoBrawl/Untitled%206.png" /></a>
+              </figure>
+            </div>
+            <div id="0bfe7bca-7ad3-4003-8990-9fd119d01a0d" style="width:33.333333333333336%" class="column">
+              <figure id="4eaa1e17-be47-4400-bd57-e83c76fa3ca6" class="image"><a href="BozoBrawl/Untitled%207.png"><img
+                    style="width:240px" src="BozoBrawl/Untitled%207.png" /></a>
+              </figure>
+            </div>
+            <div id="a6680fd0-389b-4e0e-bc0e-ee5bf4784f51" style="width:33.33333333333333%" class="column">
+              <figure id="46d31c1a-a05a-4477-9c9f-54ca30d4200b" class="image"><a href="BozoBrawl/Untitled%208.png"><img
+                    style="width:240px" src="BozoBrawl/Untitled%208.png" /></a>
+              </figure>
+            </div>
+          </div>
+          <h3 id="3c81f842-c572-4e55-a19b-fe9375469aff" class=""><strong>Volume and Post-Processing</strong></h3>
+          <p id="e148a06b-d0ba-448b-8c2b-e4d0e1430840" class="">To enhance the game&#x27;s visual appeal, we&#x27;re
+            utilizing Unity&#x27;s built-in volume and post-processing features. These tools allow us to fine-tune the
+            game&#x27;s lighting, color grading, and other visual elements to match our desired aesthetic.</p>
+          <h3 id="ebba2cd7-9f6b-40cd-b520-122998753ade" class=""><strong>Beautify</strong></h3>
+          <p id="f1af665c-e089-4ef9-80c0-ac9257f61853" class="">In addition to Unity&#x27;s native features, we&#x27;re
+            also using Beautify, a third-party asset, to further polish the game&#x27;s visuals. This helps us achieve a
+            more refined look, enhancing the game&#x27;s overall visual quality.</p>
+          <hr id="ad657b3b-dc9c-4f41-99d2-57ccf95e3ab3" />
+          <h2 id="7c77e7b0-84f4-45d2-8782-0311164a43c7" class=""><strong>Special Character Behaviors</strong></h2>
+          <p id="cb5e2389-20e5-42d3-a5fb-ed9b3fb5e339" class="">One of the more complex aspects of development has been
+            implementing the &quot;jiggle and bounce&quot; behaviors for the main characters. This required specialized
+            physics calculations and fine-tuning to achieve the desired rubbery, playful feel.</p>
+          <h1 id="b099a520-13ad-43cc-a6dd-aa2fa043195f" class=""><strong>7. UI/UX</strong></h1>
+          <hr id="4271822d-de28-47b2-bbf3-062b2bfdf6f9" />
+          <h2 id="71411943-edad-4d49-92ff-114ebd301fbe" class=""><strong>General Approach</strong></h2>
+          <p id="31f0eb39-39d9-4e66-83b7-f82dbd0765d3" class="">Bozo Brawl takes a unique approach to UI by integrating
+            menu options directly into the game environment. The main menu is essentially the lobby, where players can
+            interact with various objects to access settings, start games, and more.</p>
+          <div id="03460db4-9d89-479a-92c7-ab6387e67679" class="column-list">
+            <div id="e5248d12-8871-49e4-accb-a3a17952fb0b" style="width:50%" class="column">
+              <figure id="0b02f3bb-086f-4a74-8290-2db4895e80eb" class="image"><a href="BozoBrawl/Untitled%209.png"><img
+                    style="width:432px" src="BozoBrawl/Untitled%209.png" /></a>
+              </figure>
+            </div>
+            <div id="c69200b3-dfee-4c2f-b332-321e4eb64803" style="width:50%" class="column">
+              <figure id="9ff0ff01-17bc-4efd-8618-6ec34a06abac" class="image"><a href="BozoBrawl/Untitled%2010.png"><img
+                    style="width:432px" src="BozoBrawl/Untitled%2010.png" /></a>
+              </figure>
+            </div>
+          </div>
+          <hr id="d11b9581-b9db-4932-9267-f41e53b36412" />
+          <h2 id="6abe4f3a-43a0-4d7d-8a62-7e3a8bcebe2e" class=""><strong>In-Game Interactions for Menu Options</strong>
+          </h2>
+          <h3 id="b91e76a1-ecc6-46fe-8933-6767e81ec62c" class=""><strong>Volume Control</strong></h3>
+          <p id="6fb79d3e-e914-4d19-927e-32e118e82ba2" class="">To adjust the game&#x27;s volume, players can grab and
+            slide a lever in the lobby. This physical interaction replaces the traditional volume slider found in most
+            game menus.</p>
+          <h3 id="5d54e821-821e-472c-bd18-fe39d2f5c8d5" class=""><strong>Mute Option</strong></h3>
+          <p id="c163e766-6ca0-4ae6-9931-f956522eeb07" class="">If players wish to mute the game, they can do so by
+            punching a designated button in the environment. This provides a quick and intuitive way to control audio
+            settings.</p>
+          <h3 id="4324c239-f736-4be8-a104-adae9fd91898" class=""><strong>Starting a Game</strong></h3>
+          <p id="9ecf1563-647a-4792-a0df-65581fce2e2b" class="">To initiate a game session, players must open and enter
+            a specific door in the lobby. This action serves as the trigger to start the game and move on to the game
+            mode selection screen.</p>
+          <hr id="a7845097-8092-4ba2-98cb-6d0ec85926ab" />
+          <h2 id="70fd8d58-7f40-4015-87a1-d15cd4e59ec2" class=""><strong>Design Philosophy</strong></h2>
+          <p id="725d212e-fbea-4806-9b57-1ea3f5865d40" class="">The UI is designed to be as immersive and intuitive as
+            possible, allowing players to control game settings without breaking the flow of gameplay. The simple,
+            stylized aesthetic of the UI elements complements the game&#x27;s overall art style.</p>
+          <h1 id="882a429e-6969-4d26-bb51-cac0075fcb69" class=""><strong>8. Audio</strong></h1>
+          <hr id="5e3942c9-9130-45cc-9392-8c516d1581aa" />
+          <h2 id="c4705149-e3f3-41dc-bee3-ba52eaf701f8" class=""><strong>Music</strong></h2>
+          <p id="699607bb-9c1a-4e78-957e-a17498cff808" class="">The musical score of Bozo Brawl is designed to
+            complement the level&#x27;s thematic elements while maintaining a consistent, overarching style. The music
+            serves as funny background tunes that add tension and excitement to the gameplay.</p>
+          <h3 id="1c588022-7bc8-498c-9ec8-d0eab34f9650" class=""><strong>Level-Specific Themes</strong></h3>
+          <p id="cc5e758d-c5ce-4796-be95-3aab133e0dae" class="">Each level features its own unique musical theme that
+            aligns with its design and atmosphere. For example, the Oasis Island map might feature tropical, upbeat
+            tunes, while the Cyberpunk City map could have a more electronic, futuristic soundtrack.</p>
+          <hr id="bc35ba7c-ee3c-415a-b4ed-e63cd5daae6f" />
+          <h2 id="ef7f4af7-318d-4171-a0f4-b3a0eff6429f" class=""><strong>Sound Effects</strong></h2>
+          <h3 id="b1df211e-bb98-490b-819d-92b4f88cc8e2" class=""><strong>Character Sounds</strong></h3>
+          <p id="5afb1ccb-03ba-42d8-969f-57e671fb1a88" class="">The sound effects for the player characters are
+            intentionally cute and endearing. The characters sound like they&#x27;re having a hard time, which adds a
+            layer of humor and personality to the game.</p>
+          <h3 id="2a8b5419-fee7-4cbd-9e5f-9d4af083ed41" class=""><strong>Particle Effects</strong></h3>
+          <p id="dd61cce5-5f0f-4279-a037-597df4089760" class="">We&#x27;ll be making extensive use of Unity&#x27;s
+            particle system for various in-game effects. Each particle effect will be accompanied by its own sound
+            effect to enhance the sensory experience.</p>
+          <hr id="7996f0fe-0275-4d09-bc8b-03995d48d993" />
+          <h2 id="b013a2a5-31aa-4fa7-8dbb-48aa93bf98a3" class=""><strong>Design Philosophy</strong></h2>
+          <p id="612b510b-e0d1-44e8-8060-de11fa7ada2e" class="">The audio in Bozo Brawl is crafted to enhance the
+            player&#x27;s emotional and sensory experience. From the tension-building background music to the cute,
+            humorous character sounds, the audio serves to complement the game&#x27;s whimsical, competitive atmosphere.
+          </p>
+          <h1 id="52b5b695-f91a-4f5e-a333-bee461177278" class=""><strong>9. Monetization</strong></h1>
+          <hr id="3c5ba2fe-fbde-41a3-b0ff-849abe051a2b" />
+          <h2 id="7f6bb851-8c1c-4d15-8eb1-cf48781b28ee" class=""><strong>Initial Sales</strong></h2>
+          <p id="c9506d87-0096-48bd-b4a9-f04de33f4baf" class="">Bozo Brawl will initially be sold on Steam. Revenue will
+            be generated through direct sales of the game.</p>
+          <hr id="e368b920-2692-4dc0-9b79-9fe5c6993627" />
+          <h2 id="e01fb4b5-6a0d-48b0-be5d-ba6befc9ba20" class=""><strong>Microtransactions</strong></h2>
+          <h3 id="7cf9f89f-8a2c-45e9-8a7c-a1d10ad7bb8b" class=""><strong>Skins</strong></h3>
+          <p id="cfb2d5ea-10a1-4f60-b31d-690b95a6b912" class="">Players have the option to purchase skins to customize
+            their characters. These microtransactions offer aesthetic changes only and do not impact gameplay.</p>
+          <h3 id="fa509b22-b5eb-4a44-99b7-59f37108415e" class=""><strong>Season Passes</strong></h3>
+          <p id="bdf28455-3604-4337-8dd4-e6790948875c" class="">We plan to introduce seasonal content. Players can
+            purchase a &quot;Season Pass&quot; to gain access to exclusive skins, emotes, and other cosmetic items for
+            the duration of each season.</p>
+          <hr id="68a095bb-2f3d-41eb-954a-03f1df80927f" />
+          <h2 id="9042f382-0881-4883-a093-5fdd8e8708dd" class=""><strong>Mobile Version</strong></h2>
+          <h3 id="6801d8a1-6862-4d68-940f-8e67635e303b" class=""><strong>Free with Ads</strong></h3>
+          <p id="55bc950b-12c9-4be2-9dee-d64ddd3eeae0" class="">The game will also be released on mobile platforms as a
+            free-to-play title. This version will include ads to generate revenue.</p>
+          <h3 id="193fafad-de15-45bd-97b7-320c72d6cf87" class=""><strong>Ad-Free Option</strong></h3>
+          <p id="e15238dc-cdb8-491e-b4ee-26690f1dba25" class="">Players can opt for an ad-free experience by making a
+            one-time in-app purchase.</p>
+          <hr id="b9612be9-e3f2-49bd-89d6-cc6e66d480ba" />
+          <h2 id="66a602bc-ad30-40f0-a534-69dfca56e2a3" class=""><strong>Future Plans</strong></h2>
+          <h3 id="af8ec182-0290-4b4d-931d-6c0f9b7b0dca" class=""><strong>DLCs</strong></h3>
+          <p id="ebe1293f-42a9-4770-b7d3-27de851e3c4f" class="">We are considering the addition of downloadable content
+            (DLC) in the future, although specific plans have not yet been finalized.</p>
+          <h1 id="7e183c54-5863-4839-a7cc-d0c1ae210b43" class=""><strong>10. Marketing and PR</strong></h1>
+          <hr id="ded040be-2d07-41cf-9386-2eb64e5deef9" />
+          <h2 id="28038984-b43d-4d6e-bba1-bec3fc447dd1" class=""><strong>Influencer Outreach</strong></h2>
+          <p id="f9a32256-628a-4ecf-bb49-21de69fc51d2" class="">Given the game&#x27;s high entertainment value and
+            potential for creating engaging content, we plan to reach out to YouTubers and streamers. By getting
+            influencers to play Bozo Brawl, we aim to generate buzz and attract a wider audience.</p>
+          <hr id="927ab3c6-d05f-41f6-a640-0009016fdd13" />
+          <h2 id="4cd675ab-baec-46dc-8152-2f0dc8778b8c" class=""><strong>Traditional Advertising</strong></h2>
+          <p id="fa768e06-cc26-401b-8d44-2e7e8ba75863" class="">In addition to influencer marketing, we&#x27;ll also
+            employ more traditional advertising methods:</p>
+          <ol type="1" id="a557faca-7843-4445-94aa-c8b20de3db4c" class="numbered-list" start="1">
+            <li><strong>Social Media Ads</strong>: Targeted ads on platforms like Facebook, Instagram, and Twitter.</li>
+          </ol>
+          <ol type="1" id="62a6d0d2-0d43-4e99-8109-8cb87f473029" class="numbered-list" start="2">
+            <li><strong>Search Engine Marketing</strong>: Utilizing platforms like Google Ads to capture search traffic.
+            </li>
+          </ol>
+          <ol type="1" id="3bc25b3b-ce3f-435f-9095-26b9b5f74aa9" class="numbered-list" start="3">
+            <li><strong>Game Review Sites</strong>: Sending out press releases and review copies to relevant gaming
+              websites and blogs.</li>
+          </ol>
+          <hr id="878c168e-48e0-4f06-a96f-84e1d3b02954" />
+          <h2 id="cc59f095-7413-4161-978c-db53eb88f035" class=""><strong>Future Plans</strong></h2>
+          <p id="aecd9f5a-998c-4380-bae2-98cbbe80e7e0" class="">While we have not yet finalized our complete promotional
+            path, we are open to exploring other avenues as opportunities arise. This could include partnerships,
+            sponsorships, or special promotional events.</p>
+          <h1 id="29e13925-fcee-4886-9c45-bce59db4c5a8" class=""><strong>11. Timeline and Milestones</strong></h1>
+          <hr id="b9de48db-c28c-404b-8a31-7adbb34ffb77" />
+          <h2 id="5c213869-3b27-4a43-a311-0287c90e9936" class=""><strong>Current Status</strong></h2>
+          <p id="40ab3c90-e991-4a76-9f65-2fc591d5ebf5" class="">As of September 26, 2023, we have a playable prototype
+            of Bozo Brawl. This prototype was developed in an astonishingly quick 10-day period, starting from September
+            16, 2023.</p>
+          <hr id="9b9a63af-b261-4eab-b00e-bd4903df3147" />
+          <h2 id="fed71e38-719b-4417-b257-c88e0db635dc" class=""><strong>Future Milestones</strong></h2>
+          <p id="1b7d0973-0e1a-41a4-bdf2-c08122247355" class="">Given our rapid development pace, we are optimistic
+            about reaching the following milestones quickly, although specific dates are yet to be determined:</p>
+          <ol type="1" id="a8375f96-0faf-4386-b309-15cf16a39c81" class="numbered-list" start="1">
+            <li><strong>Alpha Version</strong>: A more polished version with additional game modes and levels.</li>
+          </ol>
+          <ol type="1" id="ef4ad406-36bf-4c8f-a46c-5c5a10815f80" class="numbered-list" start="2">
+            <li><strong>Beta Testing</strong>: A nearly complete version to be tested by a select group of players for
+              feedback.</li>
+          </ol>
+          <ol type="1" id="e42dd96a-feaa-4c14-9b5b-ae218b3b35a5" class="numbered-list" start="3">
+            <li><strong>Final Polish</strong>: Incorporating feedback and making final adjustments.</li>
+          </ol>
+          <ol type="1" id="fad91a91-04af-40b6-93ff-4d170032e04c" class="numbered-list" start="4">
+            <li><strong>Launch</strong>: Official release of the game on Steam and mobile platforms.</li>
+          </ol>
+          <hr id="d2f1ff95-0a24-4941-aeaf-b1bc9d3333c1" />
+          <h2 id="857ed588-b0f4-42a1-894d-7c475031fa3a" class=""><strong>Launch Plans</strong></h2>
+          <p id="6fa04b1f-8f2b-4aa4-b7da-5f30a1033b38" class="">While we don&#x27;t have a specific launch date, our
+            team&#x27;s speed and efficiency make us confident that we will be able to release the game in a relatively
+            short timeframe.</p>
+          <h1 id="0dd45d32-8f42-4805-8909-3e582b26781d" class=""><strong>12. Budget and Resources</strong></h1>
+          <hr id="5905bdba-465c-4bc8-8931-c012d4f79e85" />
+          <h2 id="fdb4c3a9-63ed-4d31-8dcc-28e30bfeae6a" class=""><strong>Pricing</strong></h2>
+          <h3 id="28a798b1-e583-4a92-99f1-a83d4e1c339e" class=""><strong>Steam Version</strong></h3>
+          <p id="2c14df11-62ea-4e28-9fd3-84ce28227d12" class="">While the final price has not been determined, we are
+            considering a price range of $15-$20 for the Steam version of Bozo Brawl.</p>
+          <h3 id="c91d6dc2-e2ed-489f-ab8b-dfd948c61c34" class=""><strong>Mobile Version</strong></h3>
+          <p id="ae5f866d-9721-4188-8975-753c31747da9" class="">The mobile version of the game will be free-to-play and
+            will generate revenue through ads. An ad-free experience can be unlocked through a one-time in-app purchase.
+          </p>
+          <hr id="91c578bf-ded1-4cfc-87c3-6173bcd69721" />
+          <h2 id="a0a347fd-1840-495e-875e-36c6270e35b5" class=""><strong>Development Costs</strong></h2>
+          <p id="bdb2ea26-6f5c-49fc-b404-219c78771949" class="">At this stage, we do not require a significant budget to
+            continue development. Our team has been able to produce a playable prototype in a short period, indicating
+            that we can operate efficiently with the resources currently available.</p>
+          <hr id="2e98eadb-92a7-48c9-97d0-a5c3ad1bd427" />
+          <h2 id="8bb7dac5-5380-4e3b-b4f8-ba7b8633d0b4" class=""><strong>Investment Opportunities</strong></h2>
+          <p id="31ac3681-87bb-4a70-b517-55eeb52e306a" class="">While we are capable of proceeding without substantial
+            financial backing, a reasonable investment would certainly accelerate development and provide more
+            opportunities for polishing the game, marketing, and possibly expanding to additional platforms.</p>
+        </div>
+      </article>
+    </body>
+
+    </html>
+  </div>
+  <!-- partial -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+</body>
+
+</html>

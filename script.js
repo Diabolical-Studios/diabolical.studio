@@ -76,6 +76,11 @@ $(function () {
       link.addEventListener("click", handleLinkClick);
     });
 
+    // Fetch API code for side menu links
+    document.querySelectorAll(".details").forEach((link) => {
+      link.addEventListener("click", handleLinkClick);
+    });
+
     // Fetch API code for card links
     document.querySelectorAll(".card-link").forEach((link) => {
       link.addEventListener("click", handleLinkClick);
@@ -133,11 +138,11 @@ $(function () {
     }
   });
 
-  $('.card').on('click', function() {
+  $('.card').on('click', function () {
     var $socialIcons = $(this).find('.social-icons');
     $socialIcons.toggle();  // This will show the icons if they're hidden, and hide them if they're shown
   });
-  
+
 
   // Overlay code
   $(function () {

@@ -416,12 +416,14 @@ body {
 }
 
 .social-icons {
-  display: none;
+  opacity: 0;
   transition: all 0.3s ease-in-out;
+  display: flex;
   /* Add your own styling for positioning, sizing etc. */
 }
 
 .card:hover .social-icons {
+  opacity: 1;
   display: flex;
 }
 
@@ -1105,6 +1107,9 @@ li {
 }
 .status-circle.green {
   background-color: #3bf083;
+}
+.status-circle.yellow {
+  background-color: #f0e43b;
 }
 .status-button {
   font-size: 15px;
