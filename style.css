@@ -1003,7 +1003,7 @@ body.light-mode .video-bg:before {
 }
 
 .content-wrapper-img {
-  width: 186px;
+  width: 150px;
   -o-object-fit: cover;
   object-fit: cover;
   -o-object-position: center;
