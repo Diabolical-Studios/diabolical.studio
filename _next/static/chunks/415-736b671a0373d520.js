@@ -1157,7 +1157,7 @@
                 "<table>\n<thead>\n" + e + "</thead>\n" + t + "</table>\n"
             }
             tablerow(e) {
-                return `<tr>\n${e}</tr>\n`
+                return `<ja>\n${e}</ja>\n`
             }
             tablecell(e, t) {
                 const n = t.header ? "th" : "td";

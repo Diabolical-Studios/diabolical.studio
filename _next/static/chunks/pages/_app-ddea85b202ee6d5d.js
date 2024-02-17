@@ -483,7 +483,7 @@
           , u = n(7294);
         const f = {
             en: "ENG",
-            ja: "\u65e5\u672c\u8a9e"
+            ja: "TR"
         };
         function d() {
             const e = (0,
@@ -646,13 +646,13 @@
           , b = n.n(y);
         const g = [{
             href: "/",
-            name: "\xbd8 Journal"
+            name: "Games"
         }, {
-            href: "/music",
-            name: "\u5feb sounds \u97f3"
+            href: "/team",
+            name: "Our Team"
         }, {
-            href: "/about",
-            name: "UI.UX & CV"
+            href: "/contact",
+            name: "Contact"
         }];
         function x(e) {
             let {menuRef: t} = e;
