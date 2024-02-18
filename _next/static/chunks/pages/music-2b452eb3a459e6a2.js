@@ -1,6 +1,6 @@
 (self.webpackChunk_N_E = self.webpackChunk_N_E || []).push([[621], {
     172: function(t, e, i) {
-        (window.__NEXT_P = window.__NEXT_P || []).push(["/music", function() {
+        (window.__NEXT_P = window.__NEXT_P || []).push(["/team", function() {
             return i(708)
         }
         ])
@@ -404,7 +404,7 @@
         let Z;
         const G = t=>{
             t.overlay.opacity = 1,
-            t.waveForm.visible = !0,
+            t.waveForm.visible = !1,
             t.controls.visible = !0,
             t.setProgressAlpha(.4)
         }
@@ -522,7 +522,6 @@
                 this.controls.src = i ? "/icons/pause_white.png" : "/icons/play_white.png")
             }
             setControls() {
-                const t = this.isPlaying ? "/icons/pause_white.png" : "/icons/play_white.png";
                 var e;
                 this.controls = new M(this.gl,{
                     src: t,

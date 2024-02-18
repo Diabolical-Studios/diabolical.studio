@@ -712,7 +712,7 @@ html[lang=tr] .bx {
     transform: translateZ(-500px) rotateY(45deg);
     transform-origin: center;
     transition: .5s;
-    transition-property: opacity,transform
+    transition-property: opacity,transform;
 }
 
 .bB.bv .bE,.bB.bv .bF {
@@ -1610,7 +1610,7 @@ html[lang=tr] .cS {
     transition: .3s;
     transition-property: opacity,visibility;
     user-select: none;
-    visibility: hidden
+    visibility: hidden;
 }
 
 @media(max-width: 760px) {
@@ -1763,7 +1763,7 @@ html[lang=tr] .cS {
     overflow-y: auto;
     pointer-events: auto;
     transform: translate(-50%,-50%);
-    transition: opacity .3s,visibility 0s 0s
+    transition: opacity .3s,visibility 0s 0s;
 }
 
 .cv::-webkit-scrollbar {

@@ -10,22 +10,18 @@
     <meta name="og:title" content="Sounds | Half of Eight" />
     <meta name="og:description"
         content="Art Journal with an infinite grid of CGI snaps and stories on the flip side. The sounds section is dedicated to a small set of artworks where an audio track is essential. By Anton Sokolov, software product designer at JetBrains. " />
-    <meta name="og:image" content="https://halfof8.com/img/halfof8_og_music.jpeg" />
     <meta name="next-head-count" content="7" />
-    <link rel="preload" href="/min/fonts/troika.otf" as="font" type="font/otf"
-        crossorigin="anonymous" />
+    <link rel="preload" href="/min/fonts/troika.otf" as="font" type="font/otf" crossorigin="anonymous" />
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" href="/favicon/favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
     <meta name="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
-    <link rel="preload" href="/_next/static/media/af1939b13935fec8-s.p.woff2" as="font" type="font/woff2"
-        crossorigin="anonymous" data-next-font="size-adjust" />
     <link rel="preload" href="/_next/static/css/9815be8c53f20da3.css" as="style" />
     <link rel="stylesheet" href="/_next/static/css/9815be8c53f20da3.css" data-n-g="" />
-    <link rel="preload" href="/_next/static/css/5d291cb8cf98045b.css" as="style" />
-    <link rel="stylesheet" href="/_next/static/css/5d291cb8cf98045b.css" data-n-p="" />
+    <link rel="preload" href="/_next/static/css/1b177cf53900df51.css" as="style" />
+    <link rel="stylesheet" href="/_next/static/css/1b177cf53900df51.css" data-n-p="" />
     <noscript data-n-css=""></noscript>
     <script defer="" nomodule="" src="/_next/static/chunks/polyfills-78c92fac7aa8fdd8.js"></script>
     <script src="/_next/static/chunks/webpack-69bfa6990bb9e155.js" defer=""></script>
@@ -34,163 +30,10 @@
     <script src="/_next/static/chunks/pages/_app-ddea85b202ee6d5d.js" defer=""></script>
     <script src="/_next/static/chunks/152-76563cd112a12f61.js" defer=""></script>
     <script src="/_next/static/chunks/928-a615bd35cb987531.js" defer=""></script>
-    <script src="/_next/static/chunks/415-736b671a0373d520.js" defer=""></script>
     <script src="/_next/static/chunks/416-ac30306b5a08c747.js" defer=""></script>
-    <script src="/_next/static/chunks/pages/index-6222560f84639de6.js" defer=""></script>
+    <script src="/_next/static/chunks/pages/music-2b452eb3a459e6a2.js" defer=""></script>
     <script src="/_next/static/CkHO7FSEYQSCCJ_iHxZXE/_buildManifest.js" defer=""></script>
     <script src="/_next/static/CkHO7FSEYQSCCJ_iHxZXE/_ssgManifest.js" defer=""></script>
-    <style>
-        /* Globals */
-        body {
-            margin: 0 auto;
-        }
-
-        h1 {
-            font-weight: 900;
-            font-size: 2.7rem;
-            max-width: 20ch;
-        }
-
-        p {
-            max-width: 60ch;
-        }
-
-        a {
-            color: currentcolor;
-        }
-
-        .auto-grid {
-            display: grid;
-            /* Use minmax with a flexible minimum size that adapts to the viewport width */
-            grid-template-columns: repeat(auto-fill, minmax(min(100%, max(12rem, 25vw)), 1fr));
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            height: 100%;
-        }
-
-
-
-        .flow>*+* {
-            margin-top: var(--flow-space, 1em);
-        }
-
-        /* Composition */
-        .team {
-            --flow-space: 2em;
-            height: -webkit-fill-available;
-        }
-
-        /* Blocks */
-        .profile {
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            position: relative;
-            padding: 1.5rem;
-            backface-visibility: hidden;
-            text-decoration: none;
-            overflow: hidden;
-
-            height: 100%;
-            width: 100%;
-        }
-
-        .profile::before,
-        .profile::after {
-            content: "";
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            /*inset: 0;*/
-            top: 0;
-            left: 0;
-        }
-
-        .profile::before {
-            background: linear-gradient(to top,
-                    hsl(0 0% 0% / 0.79) 0%,
-                    hsl(0 0% 0% / 0.787) 7.8%,
-                    hsl(0 0% 0% / 0.779) 14.4%,
-                    hsl(0 0% 0% / 0.765) 20.2%,
-                    hsl(0 0% 0% / 0.744) 25.3%,
-                    hsl(0 0% 0% / 0.717) 29.9%,
-                    hsl(0 0% 0% / 0.683) 34.3%,
-                    hsl(0 0% 0% / 0.641) 38.7%,
-                    hsl(0 0% 0% / 0.592) 43.3%,
-                    hsl(0 0% 0% / 0.534) 48.4%,
-                    hsl(0 0% 0% / 0.468) 54.1%,
-                    hsl(0 0% 0% / 0.393) 60.6%,
-                    hsl(0 0% 0% / 0.31) 68.3%,
-                    hsl(0 0% 0% / 0.216) 77.3%,
-                    hsl(0 0% 0% / 0.113) 87.7%,
-                    hsl(0 0% 0% / 0) 100%);
-            transition: 300ms opacity linear;
-        }
-
-        .profile>* {
-            z-index: 1;
-        }
-
-        .profile img {
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            top: 0;
-            left: 0;
-            margin: 0;
-            z-index: -1;
-            object-fit: cover;
-            transition: filter 200ms ease, transform 250ms linear;
-        }
-
-        .profile h2,
-        .profile p {
-            transform: translateY(2ex);
-        }
-
-        .profile h2 {
-            font-size: 1.7rem;
-            line-height: 1.2;
-            font-weight: 900;
-            letter-spacing: 0.03ch;
-            transition: 300ms transform ease;
-        }
-
-        .profile p {
-            font-size: 1.2rem;
-            font-weight: 500;
-        }
-
-        .profile p {
-            opacity: 0;
-            transition: 300ms opacity linear, 300ms transform ease-in-out;
-        }
-
-        .profile:hover :is(h2, p),
-        .profile:focus :is(h2, p) {
-            transform: none;
-        }
-
-        .profile:hover::after,
-        .profile:focus::after,
-        .profile:hover::before,
-        .profile:focus::before {
-            opacity: 0.7;
-        }
-
-        .profile:hover p,
-        .profile:focus p {
-            opacity: 1;
-            transition-delay: 200ms;
-        }
-
-        .profile:hover img,
-        .profile:focus img {
-            filter: grayscale(0);
-            transform: scale(1.05) rotate(1deg);
-        }
-    </style>
 </head>
 
 <body>
@@ -214,107 +57,295 @@
                     <span class="cG cH">ENG</span>
                 </li>
                 <li class="cF">
-                    <a href="/tr/team" class="cG">TR</a>
+                    <a href="/ja/team" class="cG">TR</a>
                 </li>
             </ul>
-
-            <canvas class="M N"></canvas>
-
-            <div class="team">
-                <ul class="auto-grid" role="list">
-                    <li>
-                        <a href="" target="_blank" class="profile">
-                            <h2 class="profile__name">Doruk Şaşmaz</h2>
-                            <p>Founder</p>
-                            <img src="content/doruk.jpg" />
-                        </a>
-                    </li>
-                    <li>
-                        <a href="" target="_blank" class="profile">
-                            <h2 class="profile__name">Berkin Cemal Paker</h2>
-                            <p>Creative Director</p>
-                            <img src="content/berkin.jpg" />
-                        </a>
-                    </li>
-                    <li>
-                        <a href="" target="_blank" class="profile">
-                            <h2 class="profile__name">Emre Çelikler</h2>
-                            <p>Technical Lead</p>
-                            <img src="content/emre.jpeg" />
-                        </a>
-                    </li>
-                    <li>
-                        <a href="" target="_blank" class="profile">
-                            <h2 class="profile__name">Yiğit Kayhan</h2>
-                            <p>Designer</p>
-                            <img src="content/yigit.jpeg" />
-                        </a>
-                    </li>
-                    <li>
-                        <a href="" target="_blank" class="profile">
-                            <h2 class="profile__name">Lal Şevval Koyuncu</h2>
-                            <p>Developer</p>
-                            <img src="content/lal.jpeg" />
-                        </a>
-                    </li>
-                    <li>
-                        <a href="" target="_blank" class="profile">
-                            <h2 class="profile__name">Doğukan Şahin</h2>
-                            <p>Intern</p>
-                            <img src="content/dogukan.png" />
-                        </a>
-                    </li>
-                    <li>
-                        <a href="" target="_blank" class="profile">
-                            <h2 class="profile__name">Jülide İsa</h2>
-                            <p>Intern</p>
-                            <img src="content/julide.jpeg" />
-                        </a>
-                    </li>
-                    <li>
-                        <a href="" target="_blank" class="profile">
-                            <h2 class="profile__name">Mehmet Alp</h2>
-                            <p>Intern</p>
-                            <img src="content/alp.jpeg" />
-                        </a>
-                    </li>
-                </ul>
-            </div>
-
-
-
-
-            <!--  <div class="aT">
-                <div class="aW">
-                    <div class="aX">
-                        <a href="mailto:info@halfof8.com">info@halfof8.com</a>
+            
+            <main class="K">
+                <h1 class="visually-hidden">Sounds</h1>
+                <canvas class="M"></canvas>
+                <div class="aE">
+                    <canvas class="aF" tabindex="0"></canvas>
+                    <button class="aG aL">
+                        <span class="aM"></span>
+                        <span class="aM"></span>
+                        <span class="aM"></span>
+                    </button>
+                    <button class="aG aK">
+                        <span class="aM"></span>
+                        <span class="aM"></span>
+                        <span class="aM"></span>
+                    </button>
+                    <div class="aI"></div>
+                    <div class="aH"></div>
+                    <div style="opacity:1">
+                        <div class="O">
+                            <div class="P Q"></div>
+                            <div class="P S"></div>
+                            <div class="P U"></div>
+                            <div class="P W"></div>
+                            <div class="P Y"></div>
+                            <div class="P aa"></div>
+                            <div class="P ac"></div>
+                            <div class="P af"></div>
+                            <div class="P ah"></div>
+                            <div class="P aj"></div>
+                            <div class="P al"></div>
+                            <div class="P an"></div>
+                            <div class="P ap"></div>
+                            <div class="P ar"></div>
+                            <div class="P at"></div>
+                            <div class="P av"></div>
+                            <div class="P ax"></div>
+                            <div class="P az"></div>
+                        </div>
                     </div>
-                    <div class="aY">
-                        <img src="/icons/explainer-math.svg" alt="8/2 → 4" width="138" height="44" />
-                    </div>
-                    <div class="aY">
-                        <img src="/icons/explainer-zero.svg" alt="8 → 0" width="138" height="44" />
-                    </div>
-                    <div class="aY">
-                        <img src="/icons/explainer-three.svg" alt="8| → 3" width="138" height="44" />
-                    </div>
-                    <div class="aY">
-                        <img src="/icons/explainer-inf.svg" alt="∞/2 → ∞" width="138" height="44" />
+                    <div class="aO aP">
+                        <div class="h">
+                            <div class="i"></div>
+                            <div class="j" style="transform:translateX(-72px)">
+                                <span class="k n"></span>
+                                <span class="k n"></span>
+                                <span class="k n"></span>
+                                <button tabindex="0" class="k m" aria-label="Go to track 1">1</button>
+                                <button tabindex="0" class="k" aria-label="Go to track 2">2</button>
+                                <button tabindex="0" class="k" aria-label="Go to track 3">3</button>
+                                <button tabindex="0" class="k" aria-label="Go to track 4">4</button>
+                                <button tabindex="0" class="k o" aria-label="Go to track 5">5</button>
+                                <button tabindex="0" class="k o" aria-label="Go to track 6">6</button>
+                                <button tabindex="0" class="k o" aria-label="Go to track 7">7</button>
+                                <button tabindex="0" class="k o" aria-label="Go to track 8">8</button>
+                                <button tabindex="0" class="k o" aria-label="Go to track 9">9</button>
+                                <button tabindex="0" class="k o" aria-label="Go to track 10">10</button>
+                                <button tabindex="0" class="k o" aria-label="Go to track 11">11</button>
+                                <button tabindex="0" class="k o" aria-label="Go to track 12">12</button>
+                                <button tabindex="0" class="k o" aria-label="Go to track 13">13</button>
+                                <button tabindex="0" class="k o" aria-label="Go to track 14">14</button>
+                                <button tabindex="0" class="k o" aria-label="Go to track 15">15</button>
+                            </div>
+                        </div>
+                        <div class="a">
+                            <button class="b">
+                                <span class="ba"
+                                    style="transform:rotate(180deg);background-image:url(/icons/arrow-right.svg)"></span>
+                                <span class="c">Previous</span>
+                            </button>
+                            <div class="ca">
+                                <button class="cb" id="headlessui-listbox-button-:Rqnt6:" type="button"
+                                    aria-haspopup="listbox" aria-expanded="false" data-headlessui-state="">
+                                    <span class="cc">
+                                        <span class="ce">Aerlion</span>
+                                        <span class="cf"></span>
+                                    </span>
+                                </button>
+                            </div>
+                            <button class="e">
+                                <span class="f">Next</span>
+                                <span class="ba" style="background-image:url(/icons/arrow-right.svg)"></span>
+                            </button>
+                        </div>
                     </div>
                 </div>
-                <button class="aQ">
-                    <span class="aR">
-                        <img src="/icons/logo.svg" alt="½8" width="36" height="24" />
-                    </span>
-                    <span class="aZ"></span>
-                    <span class="aS">
-                        <img class="aV" src="/icons/arrow-bold-up.svg" alt="arrow" width="13" height="23" />
-                    </span>
-                </button>
-            </div> -->
-
+            </main>
         </div>
     </div>
+    <script id="__NEXT_DATA__" type="application/json">
+            {
+                "props": {
+                    "pageProps": {
+                        "music": [
+                        {
+                            "cover": "content/doruk.jpg",
+                            "overlay": "content/doruk_overlay.png",
+                            "outlineColor": "#fff",
+                            "id": 0,
+                            "hash": "doruksasmaz",
+                            "track": {
+                                                                "metadata": {
+                                    "title": "Aerlion",
+                                    "artist": "halfof8",
+                                    "artwork": [
+                                        {
+                                            "src": "/min/music/aerlion/cover_w512.jpg",
+                                            "sizes": "512x512",
+                                            "type": "image/jpeg"
+                                        }
+                                    ]
+                                }
+                            },
+                            "poster": "/min/music/aerlion/poster.jpeg"
+                        },{
+                            "cover": "content/berkin.jpg",
+                            "overlay": "content/berkin_overlay.png",
+                            "outlineColor": "#fff",
+                            "id": 0,
+                            "hash": "berkinpaker",
+                            "track": {
+                                                                "metadata": {
+                                    "title": "Aerlion",
+                                    "artist": "halfof8",
+                                    "artwork": [
+                                        {
+                                            "src": "/min/music/aerlion/cover_w512.jpg",
+                                            "sizes": "512x512",
+                                            "type": "image/jpeg"
+                                        }
+                                    ]
+                                }
+                            },
+                            "poster": "/min/music/aerlion/poster.jpeg"
+                        },{
+                            "cover": "content/emre.jpg",
+                            "overlay": "content/emre_overlay.png",
+                            "outlineColor": "#fff",
+                            "id": 0,
+                            "hash": "berkinpaker",
+                            "track": {
+                                                                "metadata": {
+                                    "title": "Aerlion",
+                                    "artist": "halfof8",
+                                    "artwork": [
+                                        {
+                                            "src": "/min/music/aerlion/cover_w512.jpg",
+                                            "sizes": "512x512",
+                                            "type": "image/jpeg"
+                                        }
+                                    ]
+                                }
+                            },
+                            "poster": "/min/music/aerlion/poster.jpeg"
+                        },{
+                            "cover": "content/yigit.jpg",
+                            "overlay": "content/yigit_overlay.png",
+                            "outlineColor": "#fff",
+                            "id": 0,
+                            "hash": "berkinpaker",
+                            "track": {
+                                                                "metadata": {
+                                    "title": "Aerlion",
+                                    "artist": "halfof8",
+                                    "artwork": [
+                                        {
+                                            "src": "/min/music/aerlion/cover_w512.jpg",
+                                            "sizes": "512x512",
+                                            "type": "image/jpeg"
+                                        }
+                                    ]
+                                }
+                            },
+                            "poster": "/min/music/aerlion/poster.jpeg"
+                        },{
+                            "cover": "content/lal.jpg",
+                            "overlay": "content/lal_overlay.png",
+                            "outlineColor": "#fff",
+                            "id": 0,
+                            "hash": "berkinpaker",
+                            "track": {
+                                                                "metadata": {
+                                    "title": "Aerlion",
+                                    "artist": "halfof8",
+                                    "artwork": [
+                                        {
+                                            "src": "/min/music/aerlion/cover_w512.jpg",
+                                            "sizes": "512x512",
+                                            "type": "image/jpeg"
+                                        }
+                                    ]
+                                }
+                            },
+                            "poster": "/min/music/aerlion/poster.jpeg"
+                        },{
+                            "cover": "content/dogukan.jpg",
+                            "overlay": "content/dogukan_overlay.png",
+                            "outlineColor": "#fff",
+                            "id": 0,
+                            "hash": "berkinpaker",
+                            "track": {
+                                                                "metadata": {
+                                    "title": "Aerlion",
+                                    "artist": "halfof8",
+                                    "artwork": [
+                                        {
+                                            "src": "/min/music/aerlion/cover_w512.jpg",
+                                            "sizes": "512x512",
+                                            "type": "image/jpeg"
+                                        }
+                                    ]
+                                }
+                            },
+                            "poster": "/min/music/aerlion/poster.jpeg"
+                        },{
+                            "cover": "content/julide.jpg",
+                            "overlay": "content/julide_overlay.png",
+                            "outlineColor": "#fff",
+                            "id": 0,
+                            "hash": "berkinpaker",
+                            "track": {
+                                                                "metadata": {
+                                    "title": "Aerlion",
+                                    "artist": "halfof8",
+                                    "artwork": [
+                                        {
+                                            "src": "/min/music/aerlion/cover_w512.jpg",
+                                            "sizes": "512x512",
+                                            "type": "image/jpeg"
+                                        }
+                                    ]
+                                }
+                            },
+                            "poster": "/min/music/aerlion/poster.jpeg"
+                        },{
+                            "cover": "content/alp.jpg",
+                            "overlay": "content/alp_overlay.png",
+                            "outlineColor": "#fff",
+                            "id": 0,
+                            "hash": "berkinpaker",
+                            "track": {
+                                                                "metadata": {
+                                    "title": "Aerlion",
+                                    "artist": "halfof8",
+                                    "artwork": [
+                                        {
+                                            "src": "/min/music/aerlion/cover_w512.jpg",
+                                            "sizes": "512x512",
+                                            "type": "image/jpeg"
+                                        }
+                                    ]
+                                }
+                            },
+                            "poster": "/min/music/aerlion/poster.jpeg"
+                        }
+                ],
+                "t": {
+                    "meta_description": "Art Journal with an infinite grid of CGI snaps and stories on the flip side.\nThe sounds section is dedicated to a small set of artworks where an audio track is essential.\nBy Anton Sokolov, software product designer at JetBrains.\n",
+                    "next_btn": "Next",
+                    "prev_btn": "Previous",
+                    "swipe_left": "Swipe left",
+                    "swipe_right": "Swipe right",
+                    "swipe_down": "Swipe down",
+                    "or_tap": "or tap",
+                    "h1": "Sounds",
+                    "meta_title": "Sounds | Half of Eight",
+                    "pagination_btn": "Go to track"
+                }
+            },
+            "__N_SSG": true
+        },
+        "page": "/team",
+        "query": {
+        },
+        "buildId": "CkHO7FSEYQSCCJ_iHxZXE",
+        "isFallback": false,
+        "gsp": true,
+        "locale": "en",
+        "locales": [
+            "en",
+            "tr"
+        ],
+        "defaultLocale": "en",
+        "scriptLoader": [
+        ]
+    }</script>
 </body>
 
 </html>
