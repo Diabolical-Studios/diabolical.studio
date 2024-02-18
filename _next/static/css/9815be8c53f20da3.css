@@ -50,7 +50,7 @@ button {
 html {
     background-color: #000;
     color: #fff;
-    --font-super: "Dela_Gothic_One",sans-serif
+    --font-super: "Troika",sans-serif
 }
 
 ::selection {
@@ -187,10 +187,10 @@ em:first-child {
 
 @font-face {
     font-display: swap;
-    font-family: Dela_Gothic_One;
+    font-family: Troika;
     font-style: normal;
     font-weight: 400;
-    src: url(/min/fonts/DelaGothicOne-Regular.woff2) format("woff2"),url(/min/fonts/DelaGothicOne-Regular.woff) format("woff")
+    src: url(/min/fonts/troika.otf) format("otf")
 }
 
 .aQ {
@@ -527,7 +527,7 @@ em:first-child {
     z-index: 100;
     top: 24px;
     left: 24px;
-    opacity: 0;
+    opacity: 1;
     -ms-overflow-style: none;
     pointer-events: none;
     scrollbar-width: none
