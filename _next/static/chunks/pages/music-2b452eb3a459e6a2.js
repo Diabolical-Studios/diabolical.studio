@@ -3,6 +3,14 @@
         (window.__NEXT_P = window.__NEXT_P || []).push(["/team", function() {
             return i(708)
         }
+        ]),
+        (window.__NEXT_P = window.__NEXT_P || []).push(["/awards", function() {
+            return i(708)
+        }
+        ]),
+        (window.__NEXT_P = window.__NEXT_P || []).push(["/players", function() {
+            return i(708)
+        }
         ])
     },
     9401: function(t) {

@@ -650,6 +650,12 @@
         }, {
             href: "/team",
             name: "Our Team"
+        },{
+            href: "/awards",
+            name: "Awards"
+        },{
+            href: "/players",
+            name: "Players"
         }, {
             href: "/contact",
             name: "Contact"
