@@ -3016,7 +3016,7 @@
         function St(t) {
             let {images: e, t: i={}, isDebug: h=!1} = t;
             "#intro" === location.hash && ("/" === location.pathname && (location.href = "/about"),
-            "/ja" === location.pathname && (location.href = "/ja/about"));
+            "/tr" === location.pathname && (location.href = "/tr/about"));
             const r = i.meta_title
               , c = i.meta_description.replace(/\n+/g, " ");
             return (0,

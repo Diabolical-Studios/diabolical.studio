@@ -38,6 +38,168 @@
     <script src="/_next/static/chunks/pages/music-2b452eb3a459e6a2.js" defer=""></script>
     <script src="/_next/static/CkHO7FSEYQSCCJ_iHxZXE/_buildManifest.js" defer=""></script>
     <script src="/_next/static/CkHO7FSEYQSCCJ_iHxZXE/_ssgManifest.js" defer=""></script>
+    <style>
+        /* Globals */
+        body {
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-weight: 900;
+            font-size: 2.7rem;
+            max-width: 20ch;
+        }
+
+        p {
+            max-width: 60ch;
+        }
+
+        a {
+            color: currentcolor;
+        }
+
+        /* Utilities */
+        .auto-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill,
+                    minmax(var(--auto-grid-min-size, 32rem), 1fr));
+            grid-gap: var(--auto-grid-gap, 0);
+            padding: 0;
+            margin: 0;
+        }
+
+        .flow>*+* {
+            margin-top: var(--flow-space, 1em);
+        }
+
+        /* Composition */
+        .team {
+            --flow-space: 2em;
+        }
+
+        /* Blocks */
+        .profile {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            aspect-ratio: 1/1;
+            position: relative;
+            padding: 1.5rem;
+            color: #ffffff;
+            backface-visibility: hidden;
+            text-decoration: none;
+            overflow: hidden;
+        }
+
+        .profile::before,
+        .profile::after {
+            content: "";
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            /*inset: 0;*/
+            top: 0;
+            left: 0;
+        }
+
+        .profile::before {
+            background: linear-gradient(to top,
+                    hsl(0 0% 0% / 0.79) 0%,
+                    hsl(0 0% 0% / 0.787) 7.8%,
+                    hsl(0 0% 0% / 0.779) 14.4%,
+                    hsl(0 0% 0% / 0.765) 20.2%,
+                    hsl(0 0% 0% / 0.744) 25.3%,
+                    hsl(0 0% 0% / 0.717) 29.9%,
+                    hsl(0 0% 0% / 0.683) 34.3%,
+                    hsl(0 0% 0% / 0.641) 38.7%,
+                    hsl(0 0% 0% / 0.592) 43.3%,
+                    hsl(0 0% 0% / 0.534) 48.4%,
+                    hsl(0 0% 0% / 0.468) 54.1%,
+                    hsl(0 0% 0% / 0.393) 60.6%,
+                    hsl(0 0% 0% / 0.31) 68.3%,
+                    hsl(0 0% 0% / 0.216) 77.3%,
+                    hsl(0 0% 0% / 0.113) 87.7%,
+                    hsl(0 0% 0% / 0) 100%);
+            transition: 300ms opacity linear;
+        }
+
+        .profile::after {
+            background: linear-gradient(45deg,
+                    hsl(5 97% 63% / 0.7) 0,
+                    hsl(5 97% 63% / 0) 100%);
+            opacity: 0;
+            transition: 300ms opacity linear;
+        }
+
+        .profile>* {
+            z-index: 1;
+        }
+
+        .profile img {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            margin: 0;
+            z-index: -1;
+            object-fit: cover;
+            filter: grayscale(1);
+            transition: filter 200ms ease, transform 250ms linear;
+        }
+
+        .profile h2,
+        .profile p {
+            transform: translateY(2ex);
+        }
+
+        .profile h2 {
+            font-size: 1.7rem;
+            line-height: 1.2;
+            font-weight: 900;
+            letter-spacing: 0.03ch;
+            transition: 300ms transform ease;
+        }
+
+        .profile p {
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+
+        .profile p {
+            opacity: 0;
+            transition: 300ms opacity linear, 300ms transform ease-in-out;
+        }
+
+        .profile:focus {
+            outline: 0.5rem solid white;
+            outline-offset: -0.5rem;
+        }
+
+        .profile:hover :is(h2, p),
+        .profile:focus :is(h2, p) {
+            transform: none;
+        }
+
+        .profile:hover::after,
+        .profile:focus::after,
+        .profile:hover::before,
+        .profile:focus::before {
+            opacity: 0.7;
+        }
+
+        .profile:hover p,
+        .profile:focus p {
+            opacity: 1;
+            transition-delay: 200ms;
+        }
+
+        .profile:hover img,
+        .profile:focus img {
+            filter: grayscale(0);
+            transform: scale(1.05) rotate(1deg);
+        }
+    </style>
 </head>
 
 <body>
@@ -88,10 +250,62 @@
                     <span class="cG cH">ENG</span>
                 </li>
                 <li class="cF">
-                    <a href="/ja/music" class="cG">TR</a>
+                    <a href="/tr/music" class="cG">TR</a>
                 </li>
             </ul>
-            <div class="aT">
+            <div class="team">
+                <ul class="auto-grid" role="list">
+                    <li>
+                        <a href="https://swop.link/cool" target=_blank" class="profile">
+                            <h2 class="profile__name">Anita Simmons</h2>
+                            <p>Founder</p>
+                            <img alt="Anita Simmons" src="https://source.unsplash.com/BhcutpohYwg/800x800" />
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://swop.link/cool" target=_blank" class="profile">
+                            <h2 class="profile__name">Celina Harris</h2>
+                            <p>Creative Director</p>
+                            <img alt="Profile shot for Celina Harris"
+                                src="https://source.unsplash.com/j5KAuRrYX7g/800x800" />
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://swop.link/cool" target=_blank" class="profile">
+                            <h2 class="profile__name">Ruby Morris</h2>
+                            <p>Technical Lead</p>
+                            <img alt="Profile shot for Ruby Morris"
+                                src="https://source.unsplash.com/pQyIutdScOY/800x800" />
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://swop.link/cool" target=_blank" class="profile">
+                            <h2 class="profile__name">Nicholas Castro</h2>
+                            <p>Designer</p>
+                            <img alt="Profile shot for Nicholas Castro"
+                                src="https://source.unsplash.com/55JRsxcAiWE/800x800" />
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://swop.link/cool" target=_blank" class="profile">
+                            <h2 class="profile__name">Marc Dixon</h2>
+                            <p>Developer</p>
+                            <img alt="Profile shot for Marc Dixon"
+                                src="https://source.unsplash.com/5wn6DeAEcmE/800x800" />
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://swop.link/cool" target=_blank" class="profile">
+                            <h2 class="profile__name">Chad Chadson</h2>
+                            <p>Intern</p>
+                            <img alt="Profile shot for Chad"
+                                src="https://source.unsplash.com/7jCYw6a2Wao/800x800" />
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!--  <div class="aT">
                 <div class="aW">
                     <div class="aX">
                         <a href="mailto:info@halfof8.com">info@halfof8.com</a>
@@ -118,93 +332,8 @@
                         <img class="aV" src="/icons/arrow-bold-up.svg" alt="arrow" width="13" height="23" />
                     </span>
                 </button>
-            </div>
-            <main class="K">
-                <h1 class="visually-hidden">Sounds</h1>
-                <canvas class="M"></canvas>
-                <div class="aE">
-                    <canvas class="aF" tabindex="0"></canvas>
-                    <button class="aG aL">
-                        <span class="aM"></span>
-                        <span class="aM"></span>
-                        <span class="aM"></span>
-                    </button>
-                    <button class="aG aK">
-                        <span class="aM"></span>
-                        <span class="aM"></span>
-                        <span class="aM"></span>
-                    </button>
-                    <div class="aI"></div>
-                    <div class="aH"></div>
-                    <div style="opacity:1">
-                        <div class="O">
-                            <div class="P Q"></div>
-                            <div class="P S"></div>
-                            <div class="P U"></div>
-                            <div class="P W"></div>
-                            <div class="P Y"></div>
-                            <div class="P aa"></div>
-                            <div class="P ac"></div>
-                            <div class="P af"></div>
-                            <div class="P ah"></div>
-                            <div class="P aj"></div>
-                            <div class="P al"></div>
-                            <div class="P an"></div>
-                            <div class="P ap"></div>
-                            <div class="P ar"></div>
-                            <div class="P at"></div>
-                            <div class="P av"></div>
-                            <div class="P ax"></div>
-                            <div class="P az"></div>
-                        </div>
-                    </div>
-                    <div class="aO aP">
-                        <div class="h">
-                            <div class="i"></div>
-                            <div class="j" style="transform:translateX(-72px)">
-                                <span class="k n"></span>
-                                <span class="k n"></span>
-                                <span class="k n"></span>
-                                <button tabindex="0" class="k m" aria-label="Go to track 1">1</button>
-                                <button tabindex="0" class="k" aria-label="Go to track 2">2</button>
-                                <button tabindex="0" class="k" aria-label="Go to track 3">3</button>
-                                <button tabindex="0" class="k" aria-label="Go to track 4">4</button>
-                                <button tabindex="0" class="k o" aria-label="Go to track 5">5</button>
-                                <button tabindex="0" class="k o" aria-label="Go to track 6">6</button>
-                                <button tabindex="0" class="k o" aria-label="Go to track 7">7</button>
-                                <button tabindex="0" class="k o" aria-label="Go to track 8">8</button>
-                                <button tabindex="0" class="k o" aria-label="Go to track 9">9</button>
-                                <button tabindex="0" class="k o" aria-label="Go to track 10">10</button>
-                                <button tabindex="0" class="k o" aria-label="Go to track 11">11</button>
-                                <button tabindex="0" class="k o" aria-label="Go to track 12">12</button>
-                                <button tabindex="0" class="k o" aria-label="Go to track 13">13</button>
-                                <button tabindex="0" class="k o" aria-label="Go to track 14">14</button>
-                                <button tabindex="0" class="k o" aria-label="Go to track 15">15</button>
-                            </div>
-                        </div>
-                        <div class="a">
-                            <button class="b">
-                                <span class="ba"
-                                    style="transform:rotate(180deg);background-image:url(/icons/arrow-right.svg)"></span>
-                                <span class="c">Previous</span>
-                            </button>
-                            <div class="ca">
-                                <button class="cb" id="headlessui-listbox-button-:Rqnt6:" type="button"
-                                    aria-haspopup="listbox" aria-expanded="false" data-headlessui-state="">
-                                    <span class="cc">
-                                        <span class="ce">Aerlion</span>
-                                        <span class="cf"></span>
-                                    </span>
-                                </button>
-                            </div>
-                            <button class="e">
-                                <span class="f">Next</span>
-                                <span class="ba" style="background-image:url(/icons/arrow-right.svg)"></span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </main>
+            </div> -->
+
         </div>
     </div>
 </body>

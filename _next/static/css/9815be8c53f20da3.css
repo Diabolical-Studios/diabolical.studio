@@ -599,8 +599,8 @@ em:first-child {
     font-family: var(--font-basic),serif
 }
 
-html[lang=ja] .J {
-    font-family: var(--font-basic-ja),serif
+html[lang=tr] .J {
+    font-family: var(--font-basic-tr),serif
 }
 
 .K {
@@ -1751,5 +1751,5 @@ html[lang=ja] .J {
 }
 
 .__variable_ef0802 {
-    --font-basic-ja: "__Noto_Serif_JP_ef0802","__Noto_Serif_JP_Fallback_ef0802"
+    --font-basic-tr: "__Noto_Serif_JP_ef0802","__Noto_Serif_JP_Fallback_ef0802"
 }
