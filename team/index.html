@@ -12,7 +12,7 @@
         content="Art Journal with an infinite grid of CGI snaps and stories on the flip side. The sounds section is dedicated to a small set of artworks where an audio track is essential. By Anton Sokolov, software product designer at JetBrains. " />
     <meta name="og:image" content="https://halfof8.com/img/halfof8_og_music.jpeg" />
     <meta name="next-head-count" content="7" />
-    <link rel="preload" href="/min/fonts/DelaGothicOne-Regular.woff2" as="font" type="font/woff2"
+    <link rel="preload" href="/min/fonts/troika.otf" as="font" type="font/otf"
         crossorigin="anonymous" />
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" href="/favicon/favicon.svg" type="image/svg+xml" />
@@ -24,8 +24,8 @@
         crossorigin="anonymous" data-next-font="size-adjust" />
     <link rel="preload" href="/_next/static/css/9815be8c53f20da3.css" as="style" />
     <link rel="stylesheet" href="/_next/static/css/9815be8c53f20da3.css" data-n-g="" />
-    <link rel="preload" href="/_next/static/css/1b177cf53900df51.css" as="style" />
-    <link rel="stylesheet" href="/_next/static/css/1b177cf53900df51.css" data-n-p="" />
+    <link rel="preload" href="/_next/static/css/5d291cb8cf98045b.css" as="style" />
+    <link rel="stylesheet" href="/_next/static/css/5d291cb8cf98045b.css" data-n-p="" />
     <noscript data-n-css=""></noscript>
     <script defer="" nomodule="" src="/_next/static/chunks/polyfills-78c92fac7aa8fdd8.js"></script>
     <script src="/_next/static/chunks/webpack-69bfa6990bb9e155.js" defer=""></script>
@@ -34,8 +34,9 @@
     <script src="/_next/static/chunks/pages/_app-ddea85b202ee6d5d.js" defer=""></script>
     <script src="/_next/static/chunks/152-76563cd112a12f61.js" defer=""></script>
     <script src="/_next/static/chunks/928-a615bd35cb987531.js" defer=""></script>
+    <script src="/_next/static/chunks/415-736b671a0373d520.js" defer=""></script>
     <script src="/_next/static/chunks/416-ac30306b5a08c747.js" defer=""></script>
-    <script src="/_next/static/chunks/pages/music-2b452eb3a459e6a2.js" defer=""></script>
+    <script src="/_next/static/chunks/pages/index-6222560f84639de6.js" defer=""></script>
     <script src="/_next/static/CkHO7FSEYQSCCJ_iHxZXE/_buildManifest.js" defer=""></script>
     <script src="/_next/static/CkHO7FSEYQSCCJ_iHxZXE/_ssgManifest.js" defer=""></script>
     <style>
@@ -58,15 +59,17 @@
             color: currentcolor;
         }
 
-        /* Utilities */
         .auto-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill,
-                    minmax(var(--auto-grid-min-size, 32rem), 1fr));
-            grid-gap: var(--auto-grid-gap, 0);
-            padding: 0;
+            /* Use minmax with a flexible minimum size that adapts to the viewport width */
+            grid-template-columns: repeat(auto-fill, minmax(min(100%, max(12rem, 25vw)), 1fr));
             margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
         }
+
+
 
         .flow>*+* {
             margin-top: var(--flow-space, 1em);
@@ -75,6 +78,7 @@
         /* Composition */
         .team {
             --flow-space: 2em;
+            height: -webkit-fill-available;
         }
 
         /* Blocks */
@@ -82,13 +86,14 @@
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
-            aspect-ratio: 1/1;
             position: relative;
             padding: 1.5rem;
-            color: #ffffff;
             backface-visibility: hidden;
             text-decoration: none;
             overflow: hidden;
+
+            height: 100%;
+            width: 100%;
         }
 
         .profile::before,
@@ -123,14 +128,6 @@
             transition: 300ms opacity linear;
         }
 
-        .profile::after {
-            background: linear-gradient(45deg,
-                    hsl(5 97% 63% / 0.7) 0,
-                    hsl(5 97% 63% / 0) 100%);
-            opacity: 0;
-            transition: 300ms opacity linear;
-        }
-
         .profile>* {
             z-index: 1;
         }
@@ -144,7 +141,6 @@
             margin: 0;
             z-index: -1;
             object-fit: cover;
-            filter: grayscale(1);
             transition: filter 200ms ease, transform 250ms linear;
         }
 
@@ -169,11 +165,6 @@
         .profile p {
             opacity: 0;
             transition: 300ms opacity linear, 300ms transform ease-in-out;
-        }
-
-        .profile:focus {
-            outline: 0.5rem solid white;
-            outline-offset: -0.5rem;
         }
 
         .profile:hover :is(h2, p),
@@ -203,33 +194,6 @@
 </head>
 
 <body>
-    <script>
-        !function (e, t, c, n, r, a, s) {
-            e[r] = e[r] || function () {
-                (e[r].a = e[r].a || []).push(arguments)
-            }
-                ,
-                e[r].l = 1 * new Date;
-            for (var i = 0; i < document.scripts.length; i++)
-                if (document.scripts[i].src === n)
-                    return;
-            a = t.createElement(c),
-                s = t.getElementsByTagName(c)[0],
-                a.async = 1,
-                a.src = n,
-                s.parentNode.insertBefore(a, s)
-        }(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"),
-            ym(13731373, "init", {
-                clickmap: !0,
-                trackLinks: !0,
-                accurateTrackBounce: !0
-            });
-    </script>
-    <noscript>
-        <div>
-            <img src="https://mc.yandex.ru/watch/13731373" style="position:absolute;left:-9999px" alt="" />
-        </div>
-    </noscript>
     <div id="__next">
         <div class="J __variable_12746b __variable_ef0802 lang-en" data-layout="">
             <nav class="ck cn">
@@ -250,60 +214,75 @@
                     <span class="cG cH">ENG</span>
                 </li>
                 <li class="cF">
-                    <a href="/tr/music" class="cG">TR</a>
+                    <a href="/tr/team" class="cG">TR</a>
                 </li>
             </ul>
+
+            <canvas class="M N"></canvas>
+
             <div class="team">
                 <ul class="auto-grid" role="list">
                     <li>
-                        <a href="https://swop.link/cool" target=_blank" class="profile">
-                            <h2 class="profile__name">Anita Simmons</h2>
+                        <a href="" target="_blank" class="profile">
+                            <h2 class="profile__name">Doruk Şaşmaz</h2>
                             <p>Founder</p>
-                            <img alt="Anita Simmons" src="https://source.unsplash.com/BhcutpohYwg/800x800" />
+                            <img src="content/doruk.jpg" />
                         </a>
                     </li>
                     <li>
-                        <a href="https://swop.link/cool" target=_blank" class="profile">
-                            <h2 class="profile__name">Celina Harris</h2>
+                        <a href="" target="_blank" class="profile">
+                            <h2 class="profile__name">Berkin Cemal Paker</h2>
                             <p>Creative Director</p>
-                            <img alt="Profile shot for Celina Harris"
-                                src="https://source.unsplash.com/j5KAuRrYX7g/800x800" />
+                            <img src="content/berkin.jpg" />
                         </a>
                     </li>
                     <li>
-                        <a href="https://swop.link/cool" target=_blank" class="profile">
-                            <h2 class="profile__name">Ruby Morris</h2>
+                        <a href="" target="_blank" class="profile">
+                            <h2 class="profile__name">Emre Çelikler</h2>
                             <p>Technical Lead</p>
-                            <img alt="Profile shot for Ruby Morris"
-                                src="https://source.unsplash.com/pQyIutdScOY/800x800" />
+                            <img src="content/emre.jpeg" />
                         </a>
                     </li>
                     <li>
-                        <a href="https://swop.link/cool" target=_blank" class="profile">
-                            <h2 class="profile__name">Nicholas Castro</h2>
+                        <a href="" target="_blank" class="profile">
+                            <h2 class="profile__name">Yiğit Kayhan</h2>
                             <p>Designer</p>
-                            <img alt="Profile shot for Nicholas Castro"
-                                src="https://source.unsplash.com/55JRsxcAiWE/800x800" />
+                            <img src="content/yigit.jpeg" />
                         </a>
                     </li>
                     <li>
-                        <a href="https://swop.link/cool" target=_blank" class="profile">
-                            <h2 class="profile__name">Marc Dixon</h2>
+                        <a href="" target="_blank" class="profile">
+                            <h2 class="profile__name">Lal Şevval Koyuncu</h2>
                             <p>Developer</p>
-                            <img alt="Profile shot for Marc Dixon"
-                                src="https://source.unsplash.com/5wn6DeAEcmE/800x800" />
+                            <img src="content/lal.jpeg" />
                         </a>
                     </li>
                     <li>
-                        <a href="https://swop.link/cool" target=_blank" class="profile">
-                            <h2 class="profile__name">Chad Chadson</h2>
+                        <a href="" target="_blank" class="profile">
+                            <h2 class="profile__name">Doğukan Şahin</h2>
                             <p>Intern</p>
-                            <img alt="Profile shot for Chad"
-                                src="https://source.unsplash.com/7jCYw6a2Wao/800x800" />
+                            <img src="content/dogukan.png" />
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" target="_blank" class="profile">
+                            <h2 class="profile__name">Jülide İsa</h2>
+                            <p>Intern</p>
+                            <img src="content/julide.jpeg" />
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" target="_blank" class="profile">
+                            <h2 class="profile__name">Mehmet Alp</h2>
+                            <p>Intern</p>
+                            <img src="content/alp.jpeg" />
                         </a>
                     </li>
                 </ul>
             </div>
+
+
+
 
             <!--  <div class="aT">
                 <div class="aW">
