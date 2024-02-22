@@ -646,16 +646,7 @@
             , b = n.n(y);
         const g = [{
             href: "/",
-            name: "Games"
-        }, {
-            href: "/team",
-            name: "Our Team"
-        },{
-            href: "/awards",
-            name: "Awards"
-        }, {
-            href: "/contact",
-            name: "Contact"
+            name: "Login"
         }];
         function x(e) {
             let { menuRef: t } = e;

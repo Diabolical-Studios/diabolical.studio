@@ -1,6 +1,6 @@
 (self.webpackChunk_N_E = self.webpackChunk_N_E || []).push([[621], {
     172: function(t, e, i) {
-        (window.__NEXT_P = window.__NEXT_P || []).push(["/contact", function() {
+        (window.__NEXT_P = window.__NEXT_P || []).push(["/", function() {
             return i(708)
         }
         ])
