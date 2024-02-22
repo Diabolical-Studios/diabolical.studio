@@ -11,5 +11,5 @@ self.__BUILD_MANIFEST = function(s, c, e, a) {
         "/team": [s, c, a, "static/css/1b177cf53900df51.css", "static/chunks/pages/music-2b452eb3a459e6a2.js"],
         sortedPages: ["/", "/_app", "/_error", "/contact", "/team", "/awards"]
     }
-}("static/chunks/152-76563cd112a12f61.js", "static/chunks/928-a615bd35cb987531.js", "static/chunks/415-736b671a0373d520.js", "static/chunks/416-ac30306b5a08c747.js"),
+}("static/chunks/152-76563cd112a12f61.js", "static/chunks/928-a615bd35cb987531.js", "static/chunks/415-736b671a0373d520.js", "static/chunks/screenElements.js"),
 self.__BUILD_MANIFEST_CB && self.__BUILD_MANIFEST_CB();

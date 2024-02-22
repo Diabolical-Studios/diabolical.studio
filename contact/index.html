@@ -4,7 +4,7 @@
 <head>
     <meta charSet="utf-8" />
     <meta name="viewport" content="width=device-width" />
-    <title>Sounds | Half of Eight</title>
+    <title>Diabolical Studios | Contact</title>
     <meta name="description"
         content="Art Journal with an infinite grid of CGI snaps and stories on the flip side. The sounds section is dedicated to a small set of artworks where an audio track is essential. By Anton Sokolov, software product designer at JetBrains. " />
     <meta name="og:title" content="Sounds | Half of Eight" />
@@ -30,10 +30,82 @@
     <script src="/_next/static/chunks/pages/app.js" defer=""></script>
     <script src="/_next/static/chunks/152-76563cd112a12f61.js" defer=""></script>
     <script src="/_next/static/chunks/928-a615bd35cb987531.js" defer=""></script>
-    <script src="/_next/static/chunks/416-ac30306b5a08c747.js" defer=""></script>
+    <script src="/_next/static/chunks/screenElements_content.js" defer=""></script>
     <script src="/_next/static/chunks/pages/contact.js" defer=""></script>
     <script src="/_next/static/CkHO7FSEYQSCCJ_iHxZXE/_buildManifest.js" defer=""></script>
     <script src="/_next/static/CkHO7FSEYQSCCJ_iHxZXE/_ssgManifest.js" defer=""></script>
+
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.053);
+            border-radius: 20px;
+            overflow: hidden;
+
+            background-color: rgb(0, 0, 0);
+
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+            height: -webkit-fill-available;
+        }
+
+        .image-container img {
+            height: -webkit-fill-available;
+            object-fit: cover;
+            border-right: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .glass-form {
+            backdrop-filter: blur(15px);
+            border-radius: 0 20px 20px 0;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            color: #fff;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+            border-left: 1px solid rgba(255, 255, 255, 0.3);
+
+            height: -webkit-fill-available;
+            gap: 10px;
+        }
+
+        .glass-form h2 {
+            margin-top: 0;
+            color: #fff;
+        }
+
+        .glass-form input,
+        .glass-form textarea {
+            padding: 15px;
+            border-radius: 10px;
+            border: none;
+            outline: none;
+            background: rgba(255, 255, 255, 0.5);
+            color: #000;
+        }
+
+        .glass-form button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .glass-form button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+
 </head>
 
 <body>
@@ -65,6 +137,22 @@
             </ul>
         </div>
     </div>
+
+    <div class="container">
+        <div class="image-container" style="height: -webkit-fill-available;">
+            <img src="https://development.diabolical.studio/min/artworks/bozo_brawl/image_highres.jpg"
+                alt="Descriptive Alt Text">
+        </div>
+        <form class="glass-form">
+            <h2>Contact Us</h2>
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <input type="text" name="subject" placeholder="Subject" required>
+            <textarea name="message" rows="4" placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </div>
+
     <script id="__NEXT_DATA__" type="application/json">
             {
                 "props": {
