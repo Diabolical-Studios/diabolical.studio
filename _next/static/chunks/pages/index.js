@@ -339,67 +339,113 @@
                         }
                     }, e)))
                 });
-            if (e.img) {
-                const {src: t, alt: i, width: h=1e3, height: r=1e3, ratio: c, href: n} = e
-                  , a = (0,
-                s.jsx)("div", {
-                    className: (0,
-                    v.y)(z, _, o().imgBox),
-                    children: (0,
-                    s.jsx)("img", {
-                        src: t,
-                        alt: null !== i && void 0 !== i ? i : "",
-                        width: h,
-                        height: r,
-                        className: o().img,
-                        ref: x,
-                        loading: "lazy",
-                        style: {
-                            transitionDelay: "".concat(j, "ms"),
-                            aspectRatio: c
+                if (e.img) {
+                    const {img: t, alt: i, href: n} = e; // Destructure the image, alt text, and href from e
+                    let content;
+                
+                    // Assuming that the img property is a direct link to the image
+                    const imgSrc = t;
+                
+                    // Create the content JSX with the image
+                    content = (
+                        s.jsx)("img", {
+                            src: imgSrc, // Use the imgSrc defined above
+                            alt: i ? i : "", // Use the provided alt text or default to an empty string
+                            className: o().img,
+                            ref: x,
+                            loading: "lazy",
+                            style: {
+                                width: '100%', // Set image width to 100% of its container
+                                height: 'auto', // Set height to auto to maintain aspect ratio
+                                objectFit: 'cover', // Use cover to ensure the image covers the area without distortion
+                                aspectRatio: '16 / 9', // Enforce a 16:9 aspect ratio for the image container
+                                transitionDelay: `${j}ms`,
+                            }
                         }
-                    })
-                });
-                return n ? (0,
-                s.jsx)("a", {
-                    href: n,
-                    target: "_blank",
-                    rel: "noopener noreferrer",
-                    className: o().imgLink,
-                    children: a
-                }) : a
-            }
-            if (e.video) {
-                const {video: t, poster: h=null, width: r=1e3, height: c=1e3, ratio: n} = e
-                  , a = t.startsWith("/") ? t : "/min/about/".concat(i, "/").concat(t);
-                let l = null;
-                var H;
-                if (null !== h)
-                    l = (null === (H = h) || void 0 === H ? void 0 : H.startsWith("/")) ? h : "/min/about/".concat(i, "/").concat(h);
-                return (0,
-                s.jsx)("div", {
-                    className: (0,
-                    v.y)(z, _, o().imgBox, o().videoBox),
-                    children: (0,
-                    s.jsx)("video", {
-                        src: a,
-                        width: r,
-                        height: c,
-                        className: o().video,
-                        ref: x,
-                        muted: !0,
-                        autoPlay: !0,
-                        poster: l,
-                        playsInline: !0,
-                        loop: !0,
-                        preload: "metadata",
-                        style: {
-                            transitionDelay: "".concat(j, "ms"),
-                            aspectRatio: n
+                    );
+                
+                    // Wrap the content in a div container with aspect ratio enforcement
+                    const container = (
+                        s.jsx)("div", {
+                            className: (0, v.y)(z, _, o().imgBox),
+                            style: {
+                                width: '100%', // Container width is 100%
+                                aspectRatio: '16 / 9', // Container aspect ratio is 16:9
+                                overflow: 'hidden' // Hide overflow to maintain aspect ratio
+                            },
+                            children: content
                         }
-                    })
-                })
-            }
+                    );
+                
+                    // If a href is provided, wrap the container in an anchor tag
+                    return n ? (
+                        s.jsx)("a", {
+                            href: n,
+                            target: "_blank",
+                            rel: "noopener noreferrer",
+                            className: o().imgLink,
+                            children: container
+                        }
+                    ) : container; // Otherwise, return just the container
+                }
+                
+                
+                
+                if (e.video) {
+                    const {video: t, poster: h = null} = e; // Destructure the video URL and optional poster image
+                    let content;
+                
+                    // Check if the video source is a YouTube link
+                    const isYouTubeLink = t.includes("youtube.com") || t.includes("youtu.be");
+                    // Determine if the video source is a webm link
+                    const isWebmLink = t.endsWith(".webm");
+                
+                    // Process the video source URL based on its type (YouTube, webm, or other)
+                    const videoSrc = isYouTubeLink ? 
+                        t.replace(/(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:[^\/\n\s]+\/\s*[\S]+\/|embed\/|v\/)|youtu\.be\/)([\w\-_]+)\S*/gi, "https://www.youtube.com/embed/$1") : 
+                        t;
+                
+                    if (isYouTubeLink) {
+                        // For YouTube videos, use an iframe with a 16:9 aspect ratio
+                        content = (0, s.jsx)("iframe", {
+                            src: videoSrc,
+                            frameBorder: "0",
+                            allow: "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture",
+                            allowFullScreen: true,
+                            style: {
+                                width: '100%', // Set width to 100% to fill the container
+                                aspectRatio: '16 / 9' // Maintain a 16:9 aspect ratio
+                            }
+                        });
+                    } else {
+                        // For .mp4 and .webm videos, use the video tag with source element
+                        content = (0, s.jsx)("video", {
+                            className: o().video,
+                            ref: x,
+                            muted: true,
+                            autoPlay: true,
+                            playsInline: true,
+                            loop: true,
+                            preload: "metadata",
+                            poster: h, // Use the poster image if provided
+                            style: {
+                                width: '100%', // Ensure video tag fits its container
+                                aspectRatio: '16 / 9', // Maintain a 16:9 aspect ratio
+                                transitionDelay: `${j}ms`,
+                            },
+                            children: (0, s.jsx)("source", {
+                                src: videoSrc,
+                                type: isWebmLink ? "video/webm" : "video/mp4" // Set the correct MIME type
+                            })
+                        });
+                    }
+                
+                    return (0, s.jsx)("div", {
+                        className: (0, v.y)(z, _, o().imgBox, o().videoBox),
+                        children: content
+                    });
+                }
+                
         }
         const N = ["audio", "h2", "h3", "h3-lead-light", "h4-super", "img", "link", "list", "list-body", "p", "p-body-light", "p-light", "p-title", "video"]
           , O = ["grid-2", "grid-2-2", "grid-3", "grid-3-2", "grid-4", "grid-5", "grid-6"]
@@ -537,7 +583,6 @@
             li: "bz",
             ul: "bA",
             imgBox: "bB",
-            videoBox: "bC",
             img: "bE",
             video: "bF"
         }
