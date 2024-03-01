@@ -64,46 +64,53 @@
                 </li>
             </ul>
 
-            <form class="aW" name="contact" method="POST" data-netlify="true">
-                <div class="aX">
-                    <div class="Dv"><label for="name" class="Tt">Name:</label><input type="text" id="name" name="name" class="In"
-                            required=""></div>
-                    <div class="Dv"><label for="email" class="Tt">Email:</label><input type="email" id="email" name="email"
-                            class="In" required=""></div>
-                    <div class="Dv"><label for="message" class="Tt">Message:</label><textarea id="message" name="message" rows="4"
-                            class="In" required=""></textarea></div><button type="submit" class="Bt">Submit</button>
-                </div>
+            <form name="contact" data-netlify="true" style="display: none;">
+                <input type="hidden" name="form-name" value="contact" />
+                <label>
+                    Name:
+                    <input type="text" name="name" />
+                </label>
+                <label>
+                    Email:
+                    <input type="email" name="email" />
+                </label>
+                <label>
+                    Message:
+                    <textarea name="message"></textarea>
+                </label>
+                <button type="submit">Submit</button>
             </form>
-            
+
+
             <div class="aT">
                 <div class="aW">
                     <div class="aX">
                         <a href="mailto:info@halfof8.com">info@halfof8.com</a>
                     </div>
                     <div class="aY">
-                        <img src="/icons/explainer-math.svg" alt="8/2 → 4" width="138" height="44"/>
+                        <img src="/icons/explainer-math.svg" alt="8/2 → 4" width="138" height="44" />
                     </div>
                     <div class="aY">
-                        <img src="/icons/explainer-zero.svg" alt="8 → 0" width="138" height="44"/>
+                        <img src="/icons/explainer-zero.svg" alt="8 → 0" width="138" height="44" />
                     </div>
                     <div class="aY">
-                        <img src="/icons/explainer-three.svg" alt="8| → 3" width="138" height="44"/>
+                        <img src="/icons/explainer-three.svg" alt="8| → 3" width="138" height="44" />
                     </div>
                     <div class="aY">
-                        <img src="/icons/explainer-inf.svg" alt="∞/2 → ∞" width="138" height="44"/>
+                        <img src="/icons/explainer-inf.svg" alt="∞/2 → ∞" width="138" height="44" />
                     </div>
                 </div>
                 <button class="aQ">
                     <span class="aR">
-                        <img src="/icons/logo.svg" alt="½8" width="36" height="24"/>
+                        <img src="/icons/logo.svg" alt="½8" width="36" height="24" />
                     </span>
                     <span class="aZ"></span>
                     <span class="aS">
-                        <img class="aV" src="/icons/arrow-bold-up.svg" alt="arrow" width="13" height="23"/>
+                        <img class="aV" src="/icons/arrow-bold-up.svg" alt="arrow" width="13" height="23" />
                     </span>
                 </button>
             </div>
-            
+
             <main class="K">
                 <h1 class="visually-hidden">Sounds</h1>
                 <canvas class="M"></canvas>

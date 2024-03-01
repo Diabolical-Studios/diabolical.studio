@@ -64,17 +64,24 @@
                 </li>
             </ul>
 
-            <form class="aW" name="contact" method="POST" data-netlify="true">
-                <div class="aX">
-                    <div class="Dv"><label for="name" class="Tt">Name:</label><input type="text" id="name" name="name" class="In"
-                            required=""></div>
-                    <div class="Dv"><label for="email" class="Tt">Email:</label><input type="email" id="email" name="email"
-                            class="In" required=""></div>
-                    <div class="Dv"><label for="message" class="Tt">Message:</label><textarea id="message" name="message" rows="4"
-                            class="In" required=""></textarea></div><button type="submit" class="Bt">Submit</button>
-                </div>
+            <form name="contact" data-netlify="true" style="display: none;">
+                <input type="hidden" name="form-name" value="contact" />
+                <label>
+                    Name:
+                    <input type="text" name="name" />
+                </label>
+                <label>
+                    Email:
+                    <input type="email" name="email" />
+                </label>
+                <label>
+                    Message:
+                    <textarea name="message"></textarea>
+                </label>
+                <button type="submit">Submit</button>
             </form>
-            
+
+
             <main class="K">
                 <h1 class="visually-hidden">Sounds</h1>
                 <canvas class="M"></canvas>
