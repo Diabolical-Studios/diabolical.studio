@@ -2,8 +2,9 @@ exports.handler = async (event) => {
     const {name, email, message} = JSON.parse(event.body);
     const discordWebhookUrl = process.env.DISCORD_WEBHOOK;
   
+    // Ensure you replace `UserID` with your actual Discord user ID
     const discordMessage = {
-      content: `New form submission:\nName: ${name}\nEmail: ${email}\nMessage: ${message}\n@blazitt`
+      content: `New form submission:\nName: ${name}\nEmail: ${email}\nMessage: ${message}\n<@692849614625308715>`
     };
   
     const response = await fetch(discordWebhookUrl, {
