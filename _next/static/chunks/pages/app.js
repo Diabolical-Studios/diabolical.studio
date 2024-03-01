@@ -567,7 +567,8 @@
                         (0, o.jsx)("form", {
                             className: h().popover,
                             name: "contact", // The name attribute is important for Netlify to identify the form
-                            netlify: "", // Assigning an empty string for the netlify attribute
+                            method: "POST",
+                            'data-netlify': "true",
                             children: (0, o.jsxs)("div", {
                                 className: h().info,
                                 children: [
