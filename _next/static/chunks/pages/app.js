@@ -709,9 +709,6 @@
         }, {
             href: "/awards",
             name: "Awards"
-        }, {
-            href: "/contact",
-            name: "Contact"
         }];
         function x(e) {
             let { menuRef: t } = e;
