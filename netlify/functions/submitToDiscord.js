@@ -3,7 +3,7 @@ exports.handler = async (event) => {
     const discordWebhookUrl = process.env.DISCORD_WEBHOOK;
   
     const discordMessage = {
-      content: `New form submission:\nName: ${name}\nEmail: ${email}\nMessage: ${message}`
+      content: `New form submission:\nName: ${name}\nEmail: ${email}\nMessage: ${message}\n@blazitt`
     };
   
     const response = await fetch(discordWebhookUrl, {
