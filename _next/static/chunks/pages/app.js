@@ -561,21 +561,26 @@
                 const formData = new FormData(form);
                 const submitButton = form.querySelector('button[type="submit"]');
 
-                fetch("/", {
+                // Convert FormData to a simple object for easier handling
+                const formObj = {};
+                formData.forEach((value, key) => { formObj[key] = value; });
+
+                // Netlify submission
+                fetch("/.netlify/functions/submitToDiscord", {
                     method: "POST",
-                    headers: { "Content-Type": "application/x-www-form-urlencoded" },
-                    body: new URLSearchParams(formData).toString(),
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({name: formObj.name, email: formObj.email, message: formObj.message}),
                 })
-                    .then(response => {
-                        if (response.ok) {
-                            submitButton.textContent = "Success"; // Update button text to "Success"
-                        } else {
-                            throw new Error('Network response was not ok.');
-                        }
-                    })
-                    .catch(error => {
-                        submitButton.textContent = "Failed"; // Update button text to "Failed"
-                    });
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Serverless function response was not ok.');
+                    }
+                    submitButton.textContent = "Success"; // Optionally update button text again or handle differently
+                })
+                .catch(error => {
+                    console.error("Serverless function submission failed:", error);
+                    submitButton.textContent = "Failed"; // Optionally handle this case differently
+                });
             };
 
             // Adjustments for Netlify form handling and custom submit event listener
