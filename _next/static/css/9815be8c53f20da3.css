@@ -312,12 +312,6 @@ em:first-child {
     transform-origin: left bottom;
 }
 
-@media(max-width: 760px) {
-    .Bt {
-        height: 32px
-    }
-}
-
 .Bt[disabled] {
     color: hsla(0, 0%, 100%, .3);
     pointer-events: none
@@ -326,13 +320,6 @@ em:first-child {
 @media(hover: hover)and (pointer:fine) {
     .Bt:hover {
         background-color: hsla(0, 0%, 45%, .4)
-    }
-}
-
-@media(max-width: 760px) {
-    .Bt {
-        padding-right: 12px;
-        padding-left: 12px
     }
 }
 
@@ -358,7 +345,6 @@ em:first-child {
         top: auto;
         bottom: 24px;
         left: auto;
-        transform: translate(100%) rotate(-90deg)
     }
 }
 
@@ -408,12 +394,12 @@ em:first-child {
 }
 
 .aV {
-    transform: rotate(90deg);
+    transform: rotate(0deg);
     transition: transform .3s cubic-bezier(.4, 0, .2, 1)
 }
 
 .aU .aV {
-    transform: rotate(-90deg)
+    transform: rotate(-180deg)
 }
 
 .aW {
@@ -479,7 +465,7 @@ em:first-child {
 
     .aX,
     .aY {
-        height: 32px
+        height: auto;
     }
 }
 
@@ -499,7 +485,7 @@ em:first-child {
 
     .aX,
     .aY {
-        height: 44px
+        height: auto;
     }
 }
 
