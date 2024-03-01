@@ -411,6 +411,7 @@ em:first-child {
     width: 20vw;
     flex-direction: column;
     align-items: flex-end;
+    pointer-events: none;
 }
 
 @media(max-width: 760px) {
