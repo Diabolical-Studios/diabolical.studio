@@ -545,113 +545,116 @@
             , h = n.n(p);
         function m() {
             const [e, t] = (0, u.useState)(false);
+
             function n(e) {
-                if (e.target.closest(".".concat(h().logo)))
+                if (e.target.closest(".".concat(h().logo))) {
                     return false;
-                t(false)
+                }
+                t(false);
             }
 
-            // Handler for form submission
-            function handleSubmit(event) {
-                event.preventDefault();
-                // Add form submission logic here
-                alert('Form submitted');
-            }
+            // Since we're using Netlify to handle the form submission,
+            // there's no need for a custom handleSubmit function
+            // unless you want to do something else with the form data on the client-side.
 
-            return (0, u.useEffect)(() => (document.addEventListener("click", n),
-                () => document.removeEventListener("click", n))),
+            return (0, u.useEffect)(() => {
+                document.addEventListener("click", n);
+                return () => document.removeEventListener("click", n);
+            }),
                 (0, o.jsxs)("div", {
                     className: (0, i.y)(h().logo, e && h().isOpened),
-                    children: [(0, o.jsx)("form", {
-                        className: h().popover,
-                        onSubmit: handleSubmit,
-                        children: (0, o.jsxs)("div", {
-                            className: h().info, // You might want to create or use a different class for styling the box
-                            children: [
-                                (0, o.jsxs)("div", {
-                                    children: [
-                                        (0, o.jsx)("label", {
-                                            htmlFor: "name",
-                                            children: "Name:",
-                                            className: h().title
-                                        }),
-                                        (0, o.jsx)("input", {
-                                            type: "text",
-                                            id: "name",
-                                            name: "name",
-                                            className: h().input,
-                                            required: true
-                                        })
-                                    ],
-                                    className: h().div
-                                }),
-                                (0, o.jsxs)("div", {
-                                    children: [
-                                        (0, o.jsx)("label", {
-                                            htmlFor: "email",
-                                            children: "Email:",
-                                            className: h().title,
-                                        }),
-                                        (0, o.jsx)("input", {
-                                            type: "email",
-                                            id: "email",
-                                            name: "email",
-                                            className: h().input,
-                                            required: true
-                                        })
-                                    ],
-                                    className: h().div
-                                }),
-                                (0, o.jsxs)("div", {
-                                    children: [
-                                        (0, o.jsx)("label", {
-                                            htmlFor: "message",
-                                            children: "Message:",
-                                            className: h().title
-                                        }),
-                                        (0, o.jsx)("textarea", {
-                                            id: "message",
-                                            name: "message",
-                                            rows: "4",
-                                            className: h().input,
-                                            required: true
-                                        })
-                                    ],
-                                    className: h().div
-                                }),
-                                (0, o.jsx)("button", {
-                                    type: "submit",
-                                    className: h().button, // Ensure this button is styled to match the big box design
-                                    children: "Submit"
+                    children: [
+                        (0, o.jsx)("form", {
+                            className: h().popover,
+                            name: "contact", // The name attribute is important for Netlify to identify the form
+                            "netlify": true, // This attribute enables Netlify to handle the form submission
+                            children: (0, o.jsxs)("div", {
+                                className: h().info,
+                                children: [
+                                    (0, o.jsxs)("div", {
+                                        className: h().div,
+                                        children: [
+                                            (0, o.jsx)("label", {
+                                                htmlFor: "name",
+                                                className: h().title,
+                                                children: "Name:"
+                                            }),
+                                            (0, o.jsx)("input", {
+                                                type: "text",
+                                                id: "name",
+                                                name: "name",
+                                                className: h().input,
+                                                required: true
+                                            })
+                                        ]
+                                    }),
+                                    (0, o.jsxs)("div", {
+                                        className: h().div,
+                                        children: [
+                                            (0, o.jsx)("label", {
+                                                htmlFor: "email",
+                                                className: h().title,
+                                                children: "Email:"
+                                            }),
+                                            (0, o.jsx)("input", {
+                                                type: "email",
+                                                id: "email",
+                                                name: "email",
+                                                className: h().input,
+                                                required: true
+                                            })
+                                        ]
+                                    }),
+                                    (0, o.jsxs)("div", {
+                                        className: h().div,
+                                        children: [
+                                            (0, o.jsx)("label", {
+                                                htmlFor: "message",
+                                                className: h().title,
+                                                children: "Message:"
+                                            }),
+                                            (0, o.jsx)("textarea", {
+                                                id: "message",
+                                                name: "message",
+                                                rows: "4",
+                                                className: h().input,
+                                                required: true
+                                            })
+                                        ]
+                                    }),
+                                    (0, o.jsx)("button", {
+                                        type: "submit",
+                                        className: h().button,
+                                        children: "Submit"
+                                    })
+                                ]
+                            })
+                        }), (0, o.jsxs)("button", {
+                            className: h().box,
+                            onClick: function () {
+                                t(!e)
+                            },
+                            children: [(0, o.jsx)("span", {
+                                className: h().sign,
+                                children: (0, o.jsx)("img", {
+                                    src: "/icons/logo.svg",
+                                    alt: "\xbd8",
+                                    width: "36",
+                                    height: "24"
                                 })
-                            ]
-                        })
-                    }), (0, o.jsxs)("button", {
-                        className: h().box,
-                        onClick: function () {
-                            t(!e)
-                        },
-                        children: [(0, o.jsx)("span", {
-                            className: h().sign,
-                            children: (0, o.jsx)("img", {
-                                src: "/icons/logo.svg",
-                                alt: "\xbd8",
-                                width: "36",
-                                height: "24"
-                            })
-                        }), (0, o.jsx)("span", {
-                            className: h().cross
-                        }), (0, o.jsx)("span", {
-                            className: h().arrowBox,
-                            children: (0, o.jsx)("img", {
-                                className: h().arrow,
-                                src: "/icons/arrow-bold-up.svg",
-                                alt: "arrow",
-                                width: "13",
-                                height: "23"
-                            })
+                            }), (0, o.jsx)("span", {
+                                className: h().cross
+                            }), (0, o.jsx)("span", {
+                                className: h().arrowBox,
+                                children: (0, o.jsx)("img", {
+                                    className: h().arrow,
+                                    src: "/icons/arrow-bold-up.svg",
+                                    alt: "arrow",
+                                    width: "13",
+                                    height: "23"
+                                })
+                            })]
                         })]
-                    })]
                 });
         }
 
