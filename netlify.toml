@@ -1,5 +1,0 @@
-[[redirects]]
-  from = "https://development.diabolical.studio/*"
-  to = "https://diabolical.studio/:splat"
-  status = 301
-  force = true
