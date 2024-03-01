@@ -565,6 +565,7 @@
                                 className: h().popover,
                                 name: "contact", // Correctly specify the form's name attribute for Netlify
                                 method: "POST",
+                                action: "/",
                                 'data-netlify': "true",
                                 children: (0, o.jsxs)("div", {
                                     className: h().info,
