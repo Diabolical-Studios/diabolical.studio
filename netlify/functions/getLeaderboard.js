@@ -1,29 +1,24 @@
-// netlify/functions/getLeaderboard.js
 const oracledb = require('oracledb');
-const dbConfig = {
-    user: process.env.DB_USER,
-    password: process.env.DB_PASSWORD,
-    connectString: process.env.DB_CONNECT_STRING
-};
+require('dotenv').config();
 
-const handler = async (event, context) => {
+const handler = async (event) => {
     let connection;
     try {
-        connection = await oracledb.getConnection(dbConfig);
-        const result = await connection.execute(`SELECT * FROM leaderboard ORDER BY score DESC FETCH FIRST 10 ROWS ONLY`);
+        oracledb.initOracleClient({ libDir: process.env.ORACLE_CLIENT_LIB_DIR });
+        connection = await oracledb.getConnection({
+            user: process.env.DB_USER,
+            password: process.env.DB_PASSWORD,
+            connectionString: process.env.DB_CONNECTION_STRING
+        });
+        const result = await connection.execute(`SELECT * FROM leaderboard ORDER BY score DESC`);
         return {
             statusCode: 200,
-            headers: {
-                'Content-Type': 'application/json'
-            },
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(result.rows)
         };
     } catch (err) {
-        console.error(err);
-        return {
-            statusCode: 500,
-            body: JSON.stringify({ message: "Failed to fetch leaderboard" })
-        };
+        console.error('Database connection error:', err);
+        return { statusCode: 500, body: JSON.stringify({ error: err.message }) };
     } finally {
         if (connection) {
             try {
