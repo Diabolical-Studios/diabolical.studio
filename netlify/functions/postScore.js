@@ -6,7 +6,7 @@ const dbConfig = {
     connectString: process.env.DB_CONNECT_STRING
 };
 
-const handler = async (event) => {
+exports.handler = async (event) => {
     if (event.httpMethod !== 'POST') {
         return {
             statusCode: 405,
@@ -14,39 +14,26 @@ const handler = async (event) => {
         };
     }
 
-    const data = JSON.parse(event.body);
-    const { player_name, score } = data;
-
-    let connection;
     try {
-        connection = await oracledb.getConnection(dbConfig);
+        const data = JSON.parse(event.body); // Ensure this doesn't throw 'Unexpected token' error
+        const { player_name, score } = data;
+
+        let connection = await oracledb.getConnection(dbConfig);
         const sql = `INSERT INTO leaderboard (player_name, score) VALUES (:player_name, :score)`;
-        const binds = { player_name: player_name, score: score };
-        const options = { autoCommit: true };
-        await connection.execute(sql, binds, options);
+        await connection.execute(sql, { player_name, score }, { autoCommit: true });
+
+        await connection.close();
 
         return {
             statusCode: 201,
-            headers: {
-                'Content-Type': 'application/json'
-            },
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ message: "Score successfully added" })
         };
     } catch (err) {
-        console.error(err);
+        console.error('Error inserting score', err);
         return {
             statusCode: 500,
-            body: JSON.stringify({ message: "Failed to submit score" })
+            body: JSON.stringify({ message: "Failed to submit score", error: err.message })
         };
-    } finally {
-        if (connection) {
-            try {
-                await connection.close();
-            } catch (err) {
-                console.error(err);
-            }
-        }
     }
 };
-
-exports.handler = handler;
