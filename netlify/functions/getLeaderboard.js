@@ -1,18 +1,22 @@
 // netlify/functions/getLeaderboard.js
-const fetch = require('node-fetch');
+const oracledb = require('oracledb');
+const dbConfig = {
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    connectString: process.env.DB_CONNECT_STRING
+};
 
 const handler = async (event, context) => {
+    let connection;
     try {
-        const response = await fetch(process.env.ORACLE_REST_ENDPOINT + '/leaderboard', {
-            headers: { 'Authorization': `Bearer ${process.env.ORACLE_AUTH_TOKEN}` }
-        });
-        const data = await response.json();
+        connection = await oracledb.getConnection(dbConfig);
+        const result = await connection.execute(`SELECT * FROM leaderboard ORDER BY score DESC FETCH FIRST 10 ROWS ONLY`);
         return {
             statusCode: 200,
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(data.items)
+            body: JSON.stringify(result.rows)
         };
     } catch (err) {
         console.error(err);
@@ -20,6 +24,14 @@ const handler = async (event, context) => {
             statusCode: 500,
             body: JSON.stringify({ message: "Failed to fetch leaderboard" })
         };
+    } finally {
+        if (connection) {
+            try {
+                await connection.close();
+            } catch (err) {
+                console.error(err);
+            }
+        }
     }
 };
 
