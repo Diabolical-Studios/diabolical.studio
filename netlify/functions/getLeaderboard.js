@@ -1,33 +1,18 @@
-const oracledb = require('oracledb');
-require('dotenv').config();
+// netlify/functions/getLeaderboard.js
+const axios = require('axios');
 
-const handler = async (event) => {
-    let connection;
+exports.handler = async () => {
     try {
-        oracledb.initOracleClient({ libDir: process.env.ORACLE_CLIENT_LIB_DIR });
-        connection = await oracledb.getConnection({
-            user: process.env.DB_USER,
-            password: process.env.DB_PASSWORD,
-            connectionString: process.env.DB_CONNECTION_STRING
-        });
-        const result = await connection.execute(`SELECT * FROM leaderboard ORDER BY score DESC`);
+        const response = await axios.get('https://g437e9ea50f2c14-leaderboard.adb.eu-frankfurt-1.oraclecloudapps.com/ords/admin/leaderboard/scores/');
         return {
             statusCode: 200,
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(result.rows)
+            body: JSON.stringify(response.data.items)
         };
-    } catch (err) {
-        console.error('Database connection error:', err);
-        return { statusCode: 500, body: JSON.stringify({ error: err.message }) };
-    } finally {
-        if (connection) {
-            try {
-                await connection.close();
-            } catch (err) {
-                console.error(err);
-            }
-        }
+    } catch (error) {
+        console.error('Error fetching leaderboard:', error);
+        return {
+            statusCode: error.response.status || 500,
+            body: JSON.stringify({ message: "Failed to fetch leaderboard" })
+        };
     }
 };
-
-exports.handler = handler;

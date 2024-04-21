@@ -1,51 +1,35 @@
-const oracledb = require('oracledb');
-require('dotenv').config();
+// netlify/functions/postScore.js
+const axios = require('axios');
 
 exports.handler = async (event) => {
     if (event.httpMethod !== 'POST') {
         return {
             statusCode: 405,
-            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ message: "Method Not Allowed" })
         };
     }
 
-    let connection;
+    const { player_name, score } = JSON.parse(event.body);
+    const data = {
+        player_name: player_name,
+        score: score
+    };
+
     try {
-        const body = JSON.parse(event.body);
-        const { player_name, score } = body;
-
-        oracledb.initOracleClient({ libDir: process.env.ORACLE_CLIENT_LIB_DIR });  // Ensure the Oracle client libraries are set up if necessary
-        connection = await oracledb.getConnection({
-            user: process.env.DB_USER,
-            password: process.env.DB_PASSWORD,
-            connectionString: process.env.DB_CONNECTION_STRING
+        const response = await axios.post('https://g437e9ea50f2c14-leaderboard.adb.eu-frankfurt-1.oraclecloudapps.com/ords/admin/leaderboard/scores/', data, {
+            headers: {
+                'Content-Type': 'application/json'
+            }
         });
-
-        const result = await connection.execute(
-            `INSERT INTO leaderboard (player_name, score) VALUES (:player_name, :score)`,
-            { player_name, score },
-            { autoCommit: true }
-        );
-
         return {
             statusCode: 201,
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ message: "Score successfully added" })
+            body: JSON.stringify({ message: "Score successfully added", data: response.data })
         };
-    } catch (err) {
-        console.error('Error while inserting score:', err);
+    } catch (error) {
+        console.error('Error posting score:', error);
         return {
-            statusCode: 500,
-            body: JSON.stringify({ message: "Failed to submit score", error: err.message })
+            statusCode: error.response.status || 500,
+            body: JSON.stringify({ message: "Failed to post score" })
         };
-    } finally {
-        if (connection) {
-            try {
-                await connection.close();
-            } catch (err) {
-                console.error('Error closing connection:', err);
-            }
-        }
     }
 };
