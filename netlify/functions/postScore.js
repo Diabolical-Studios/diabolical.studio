@@ -7,15 +7,14 @@ exports.handler = async (event) => {
 
     // Parse the body to get the form data
     const params = JSON.parse(event.body);
-    const { api_key, score, username, game_id } = params;
+    const { api_key, score, username } = params;
 
     // Environment variables for API key and game ID
     const expectedApiKey = process.env.API_KEY;
-    const expectedGameId = process.env.GAME_ID;
 
     // Validate API Key and Game ID
-    if (api_key !== expectedApiKey || game_id !== expectedGameId) {
-        return { statusCode: 401, body: JSON.stringify({ message: 'Unauthorized - Invalid API Key or Game ID' }) };
+    if (api_key !== expectedApiKey) {
+        return { statusCode: 401, body: JSON.stringify({ message: 'Unauthorized - Invalid API Key' }) };
     }
 
     const data = {
