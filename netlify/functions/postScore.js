@@ -12,7 +12,7 @@ exports.handler = async (event) => {
     // Environment variables for API key and game ID
     const expectedApiKey = process.env.API_KEY;
 
-    // Validate API Key
+    // Validate API Key and Game ID
     if (api_key !== expectedApiKey) {
         return { statusCode: 401, body: JSON.stringify({ message: 'Unauthorized - Invalid API Key' }) };
     }
