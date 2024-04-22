@@ -1,25 +1,17 @@
+// netlify/functions/postScore.js
 const axios = require('axios');
 
 exports.handler = async (event) => {
     if (event.httpMethod !== 'POST') {
-        return { statusCode: 405, body: JSON.stringify({ message: 'Method Not Allowed' }) };
+        return {
+            statusCode: 405,
+            body: JSON.stringify({ message: "Method Not Allowed" })
+        };
     }
 
-    // Parse the body to get the form data
-    const params = JSON.parse(event.body);
-    const { api_key, score, username, game_id } = params;
-
-    // Environment variables for API key and game ID
-    const expectedApiKey = process.env.API_KEY;
-    const expectedGameId = process.env.GAME_ID;
-
-    // Validate API Key and Game ID
-    if (api_key !== expectedApiKey || game_id !== expectedGameId) {
-        return { statusCode: 401, body: JSON.stringify({ message: 'Unauthorized - Invalid API Key or Game ID' }) };
-    }
-
+    const { player_name, score } = JSON.parse(event.body);
     const data = {
-        player_name: username,
+        player_name: player_name,
         score: score
     };
 
@@ -34,9 +26,10 @@ exports.handler = async (event) => {
             body: JSON.stringify({ message: "Score successfully added", data: response.data })
         };
     } catch (error) {
+        console.error('Error posting score:', error);
         return {
-            statusCode: 500,
-            body: JSON.stringify({ message: "Failed to post score", error: error.message })
+            statusCode: error.response.status || 500,
+            body: JSON.stringify({ message: "Failed to post score" })
         };
     }
 };
