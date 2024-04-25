@@ -8,7 +8,8 @@ exports.handler = async (event) => {
         };
     }
 
-    const { player_name, score, game_id, apiKey } = JSON.parse(event.body);
+    const { player_name, score, game_id } = JSON.parse(event.body);
+    const apiKey = event.headers['x-api-key']; // Extract API key from headers
 
     // Check if the correct API Key was provided
     if (apiKey !== process.env.API_KEY) {
