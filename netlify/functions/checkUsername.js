@@ -30,11 +30,13 @@ exports.handler = async (event) => {
         // Assume the Oracle endpoint returns JSON with an 'exists' field
         const exists = response.data.exists; // Make sure your Oracle backend is set up to return this field
 
+        // Correct the headers to match expected output
         return {
             statusCode: 200,
-            headers: { 'Content-Type': 'text/plain' },
-            body: exists.toString()
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ exists: exists })
         };
+
     } catch (error) {
         console.error('Error checking player name:', error);
         return {
