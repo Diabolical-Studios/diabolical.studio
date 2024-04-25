@@ -1,7 +1,14 @@
-// netlify/functions/getLeaderboard.js
 const axios = require('axios');
 
-exports.handler = async () => {
+exports.handler = async (event) => {
+    // Check if the correct API Key was provided
+    if (event.headers['x-api-key'] !== process.env.API_KEY) {
+        return {
+            statusCode: 401,
+            body: JSON.stringify({ message: "Unauthorized" })
+        };
+    }
+
     try {
         const response = await axios.get('https://g437e9ea50f2c14-leaderboard.adb.eu-frankfurt-1.oraclecloudapps.com/ords/admin/leaderboard/scores/');
         return {

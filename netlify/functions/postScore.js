@@ -1,4 +1,3 @@
-// netlify/functions/postScore.js
 const axios = require('axios');
 
 exports.handler = async (event) => {
@@ -9,10 +8,20 @@ exports.handler = async (event) => {
         };
     }
 
-    const { player_name, score } = JSON.parse(event.body);
+    const { player_name, score, game_id, apiKey } = JSON.parse(event.body);
+
+    // Check if the correct API Key was provided
+    if (apiKey !== process.env.API_KEY) {
+        return {
+            statusCode: 401,
+            body: JSON.stringify({ message: "Unauthorized" })
+        };
+    }
+
     const data = {
         player_name: player_name,
-        score: score
+        score: score,
+        game_id: game_id
     };
 
     try {
