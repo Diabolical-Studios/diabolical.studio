@@ -8,7 +8,9 @@ exports.handler = async (event) => {
             };
         }
 
-        const playerName = event.pathParameters ? event.pathParameters.player_name : null;
+        const pathSegments = event.path.split('/');
+        const playerName = pathSegments[pathSegments.length - 1]; // Get the last segment of the path
+
         if (!playerName) {
             return {
                 statusCode: 400,
