@@ -1,3 +1,6 @@
+const axios = require('axios');
+const process = require('process');
+
 exports.handler = async (event) => {
     try {
         if (event.httpMethod !== 'GET') {
