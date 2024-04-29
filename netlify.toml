@@ -1,5 +1,11 @@
 [[redirects]]
-  from = "https://*.diabolical.studio/*"
+  from = "https://diabolical.studio/*"
   to = "https://diabolical.studio/:splat"
   status = 301
   force = true
+
+[[redirects]]
+  from = "http://api.diabolical.studio/*"
+  to = "http://api.diabolical.studio/:splat"
+  status = 200
+  force = false
