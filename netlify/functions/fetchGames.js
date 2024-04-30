@@ -1,33 +1,30 @@
-const oracledb = require('oracledb');
+const axios = require('axios');
 
-exports.handler = async function (event, context) {
-    //oracledb.initOracleClient({ libDir: process.env.ORACLE_CLIENT_LIB_DIR });
-    let connection;
+exports.handler = async (event) => {
+    // Check if the correct API Key was provided
+    if (event.headers['x-api-key'] !== process.env.API_KEY) {
+        return {
+            statusCode: 401,
+            body: JSON.stringify({ message: "Unauthorized" })
+        };
+    }
+
+    // Use the API URL from the environment variable
+    const apiUrl = process.env.GAMES_API_URL;
 
     try {
-        connection = await oracledb.getConnection({
-            user: process.env.DB_USER,
-            password: process.env.DB_PASSWORD,
-            connectionString: process.env.DB_CONNECTION_STRING
-        });
-
-        const result = await connection.execute(`SELECT * FROM games`);
+        const response = await axios.get(apiUrl);
+        // Assuming the data structure you want is in `response.data.items`
         return {
             statusCode: 200,
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(result.rows)
+            body: JSON.stringify(response.data.items)
         };
-    } catch (err) {
-        console.error('Error fetching games:', err);
+    } catch (error) {
+        console.error('Error fetching games:', error);
+        // Handle error response appropriately
         return {
-            statusCode: 500,
-            body: 'Failed to fetch games'
+            statusCode: error.response ? error.response.status : 500,
+            body: JSON.stringify({ message: "Failed to fetch games" })
         };
-    } finally {
-        if (connection) {
-            await connection.close();
-        }
     }
 };
