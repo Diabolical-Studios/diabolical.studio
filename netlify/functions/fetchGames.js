@@ -1,13 +1,6 @@
 const axios = require('axios');
 
 exports.handler = async (event) => {
-    // Check if the correct API Key was provided
-    if (event.headers['x-api-key'] !== process.env.API_KEY) {
-        return {
-            statusCode: 401,
-            body: JSON.stringify({ message: "Unauthorized" })
-        };
-    }
 
     // Use the API URL from the environment variable
     const apiUrl = process.env.GAMES_API_URL;
