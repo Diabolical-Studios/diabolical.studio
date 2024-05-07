@@ -711,9 +711,12 @@
         }, {
             href: "/team",
             name: "Our Team"
-        }, {
+        }, /* {
             href: "/awards",
             name: "Awards"
+        } */,{
+            href: "https://github.com/Diabolical-Studios/DiabolicalLauncher/releases/download/0.0.12/Diabolical-Launcher-Setup.exe",
+            name: "Download Launcher"
         }];
         function x(e) {
             let { menuRef: t } = e;

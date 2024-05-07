@@ -251,28 +251,47 @@ em:first-child {
 }
 
 .Tt {
-    color: #FFF; /* White text color */
-    font-family: var(--font-basic); /* Use the same font family as .Bt */
-    font-size: 16px; /* Match the font size */
-    margin-bottom: 8px; /* Space between title and input field */
-    display: block; /* Ensure titles are block-level to take their own line */
-    transition: color 0.4s; /* Smooth transition for color change */
+    color: #FFF;
+    /* White text color */
+    font-family: var(--font-basic);
+    /* Use the same font family as .Bt */
+    font-size: 16px;
+    /* Match the font size */
+    margin-bottom: 8px;
+    /* Space between title and input field */
+    display: block;
+    /* Ensure titles are block-level to take their own line */
+    transition: color 0.4s;
+    /* Smooth transition for color change */
 }
 
 .In {
-    background: rgba(255, 255, 255, 0.2); /* Slightly lighter background for visibility */
-    border: 1px solid rgba(255, 255, 255, 0.3); /* Subtle border */
-    color: #FFF; /* White text color */
-    font-family: var(--font-basic); /* Matching font family */
-    font-size: 16px; /* Consistent font size */
-    padding: 12px; /* Comfortable padding inside fields */
-    border-radius: 4px; /* Rounded corners */
-    width: calc(100% - 24px); /* Full width with padding consideration */
-    margin-bottom: 16px; /* Space between consecutive fields */
-    transition: background-color 0.4s, border-color 0.4s; /* Smooth transitions for interaction */
-    -webkit-appearance: none; /* Remove default styling */
-    -moz-appearance: none; /* Remove default styling */
-    appearance: none; /* Remove default styling */
+    background: rgba(255, 255, 255, 0.2);
+    /* Slightly lighter background for visibility */
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    /* Subtle border */
+    color: #FFF;
+    /* White text color */
+    font-family: var(--font-basic);
+    /* Matching font family */
+    font-size: 16px;
+    /* Consistent font size */
+    padding: 12px;
+    /* Comfortable padding inside fields */
+    border-radius: 4px;
+    /* Rounded corners */
+    width: calc(100% - 24px);
+    /* Full width with padding consideration */
+    margin-bottom: 16px;
+    /* Space between consecutive fields */
+    transition: background-color 0.4s, border-color 0.4s;
+    /* Smooth transitions for interaction */
+    -webkit-appearance: none;
+    /* Remove default styling */
+    -moz-appearance: none;
+    /* Remove default styling */
+    appearance: none;
+    /* Remove default styling */
     width: -webkit-fill-available;
 }
 
@@ -426,7 +445,8 @@ em:first-child {
     }
 }
 
-.aX, .aY {
+.aX,
+.aY {
     overflow: hidden;
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
@@ -579,6 +599,36 @@ em:first-child {
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     background: rgba(53, 53, 53, .4);
+    color: #fff;
+    pointer-events: auto
+}
+
+.download-button {
+    border: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    z-index: 10;
+    display: flex;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+    padding: 0 12px;
+    border-radius: 2px;
+    font-family: var(--font-basic);
+    font-size: 16px;
+    gap: 4px;
+    transition: .4s;
+    transition-property: background-color, color, border-color;
+    white-space: nowrap;
+    overflow: hidden;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    background: rgba(236, 38, 38, 0.4);
     color: #fff;
     pointer-events: auto
 }
