@@ -1,4 +1,5 @@
 const { Octokit } = require("@octokit/rest");
+const axios = require("axios");
 
 exports.handler = async function (event, context) {
     const octokit = new Octokit({ auth: process.env.GITHUB_TOKEN });
@@ -10,16 +11,25 @@ exports.handler = async function (event, context) {
         const asset = release.data.assets.find(asset => asset.name === 'Build-StandaloneWindows64.zip');
 
         if (asset) {
-            // Log the URL to verify it's correct
-            console.log("Asset URL for download:", asset.browser_download_url);
-
-            // Redirect to the asset's browser download URL
-            return {
-                statusCode: 302,  // Use HTTP status code for redirection
+            // Fetch the asset using a stream
+            const response = await axios({
+                url: asset.url,
+                method: 'GET',
+                responseType: 'stream',
                 headers: {
-                    'Location': asset.browser_download_url
+                    'Authorization': `token ${process.env.GITHUB_TOKEN}`,
+                    'Accept': 'application/octet-stream'
+                }
+            });
+
+            return {
+                statusCode: 200,
+                headers: {
+                    'Content-Type': 'application/octet-stream',
+                    'Content-Disposition': `attachment; filename="${asset.name}"`
                 },
-                body: ''  // No need to return a body for redirection
+                body: response.data,  // Stream the data to the client
+                isBase64Encoded: true
             };
         } else {
             return { statusCode: 404, body: 'No release found for this game' };
