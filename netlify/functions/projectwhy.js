@@ -3,7 +3,6 @@ const axios = require("axios");
 
 exports.handler = async function (event, context) {
     const octokit = new Octokit({ auth: process.env.GITHUB_TOKEN });
-    const gameId = event.queryStringParameters.gameId;
     const repo = 'ProjectWhy';  // Your repository name
     const owner = 'Diabolical-Studios';  // Your GitHub username or organization
 
@@ -15,7 +14,7 @@ exports.handler = async function (event, context) {
             const fileResponse = await axios({
                 url: asset.url,
                 method: 'GET',
-                responseType: 'stream',
+                responseType: 'arraybuffer',
                 headers: {
                     'Authorization': `token ${process.env.GITHUB_TOKEN}`,
                     'Accept': 'application/octet-stream'
@@ -26,9 +25,9 @@ exports.handler = async function (event, context) {
                 statusCode: 200,
                 headers: {
                     'Content-Type': 'application/zip',
-                    'Content-Disposition': `attachment; filename="${gameId}.zip"`
+                    'Content-Disposition': `attachment; filename="Build-StandaloneWindows64.zip"`
                 },
-                body: fileResponse.data.read().toString('base64'),
+                body: Buffer.from(fileResponse.data).toString('base64'),
                 isBase64Encoded: true
             };
         } else {
