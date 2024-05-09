@@ -11,24 +11,25 @@ exports.handler = async function (event, context) {
         const asset = release.data.assets.find(asset => asset.name === 'Build-StandaloneWindows64.zip');
 
         if (asset) {
-            // Fetch the asset using a stream
             const response = await axios({
                 url: asset.url,
                 method: 'GET',
-                responseType: 'stream',
+                responseType: 'arraybuffer',  // Fetch as ArrayBuffer for easier conversion to base64
                 headers: {
                     'Authorization': `token ${process.env.GITHUB_TOKEN}`,
                     'Accept': 'application/octet-stream'
                 }
             });
 
+            const base64 = Buffer.from(response.data).toString('base64');
+
             return {
                 statusCode: 200,
                 headers: {
                     'Content-Type': 'application/octet-stream',
-                    'Content-Disposition': `attachment; filename="${asset.name}"`
+                    'Content-Disposition': `attachment; filename="${asset.name}"`,
                 },
-                body: response.data,  // Stream the data to the client
+                body: base64,
                 isBase64Encoded: true
             };
         } else {
