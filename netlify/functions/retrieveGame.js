@@ -4,7 +4,7 @@ const axios = require('axios');
 exports.handler = async (event, context) => {
   const { gameId, version = 'latest' } = event.queryStringParameters;
   const baseUrl = process.env.ORACLE_CLOUD_STORAGE_URL; // Set this in your Netlify environment variables
-  const gamePath = `${baseUrl}${gameId}/Versions/Build-${gameId}-${version}.zip`;
+  const gamePath = `${baseUrl}${gameId}/Versions/Build-StandaloneWindows64-${version}.zip`;
 
   try {
     const response = await axios({
