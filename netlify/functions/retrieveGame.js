@@ -1,33 +1,28 @@
-// File: /netlify/functions/retrieveGame.js
-const axios = require('axios');
+const https = require('https');
 
-exports.handler = async (event, context) => {
+exports.handler = function (event, context, callback) {
   const { gameId, version = 'latest' } = event.queryStringParameters;
-  const baseUrl = process.env.ORACLE_CLOUD_STORAGE_URL; // Set this in your Netlify environment variables
+  const baseUrl = process.env.ORACLE_CLOUD_STORAGE_URL; // Your stored base URL
   const gamePath = `${baseUrl}${gameId}/Versions/Build-StandaloneWindows64-${version}.zip`;
 
-  try {
-    const response = await axios({
-      method: 'get',
-      url: gamePath,
-      responseType: 'stream'
-    });
-
-    return {
+  const req = https.get(gamePath, (res) => {
+    // Set response headers
+    let headers = {
+      'Content-Type': 'application/zip',
+      'Content-Disposition': `attachment; filename=Build-${gameId}-${version}.zip`
+    };
+    callback(null, {
       statusCode: 200,
-      body: response.data,
-      headers: {
-        'Content-Type': 'application/zip',
-        'Content-Disposition': `attachment; filename=Build-${gameId}-${version}.zip`
-      }
-    };
-  } catch (error) {
-    console.error('Error retrieving game:', error);
-    return {
-      statusCode: error.response?.status || 500,
-      body: JSON.stringify({
-        error: 'Failed to retrieve game'
-      })
-    };
-  }
+      headers: headers,
+      body: res.pipe(process.stdout) // Pipe the response to the output
+    });
+  });
+
+  req.on('error', (e) => {
+    console.error(`Problem with request: ${e.message}`);
+    callback(null, {
+      statusCode: 500,
+      body: JSON.stringify({ error: 'Failed to retrieve game' })
+    });
+  });
 };
