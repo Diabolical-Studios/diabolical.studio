@@ -21,7 +21,7 @@ exports.handler = async (event) => {
         };
     }
 
-    const updateUrl = `https://g437e9ea50f2c14-leaderboard.adb.eu-frankfurt-1.oraclecloudapps.com/ords/admin/leaderboard/update_score/`;
+    const updateUrl = `https://g437e9ea50f2c14-diabolicalleaderboards.adb.eu-frankfurt-1.oraclecloudapps.com/ords/admin/leaderboard/update_score/`;
 
     const data = {
         player_name,

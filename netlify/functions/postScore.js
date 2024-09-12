@@ -26,7 +26,7 @@ exports.handler = async (event) => {
     };
 
     try {
-        const response = await axios.post('https://g437e9ea50f2c14-leaderboard.adb.eu-frankfurt-1.oraclecloudapps.com/ords/admin/leaderboard/scores/', data, {
+        const response = await axios.post('https://g437e9ea50f2c14-diabolicalleaderboards.adb.eu-frankfurt-1.oraclecloudapps.com/ords/admin/leaderboard/scores/', data, {
             headers: {
                 'Content-Type': 'application/json'
             }

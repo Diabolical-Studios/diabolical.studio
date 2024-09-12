@@ -10,7 +10,7 @@ exports.handler = async (event) => {
     }
 
     try {
-        const response = await axios.get('https://g437e9ea50f2c14-leaderboard.adb.eu-frankfurt-1.oraclecloudapps.com/ords/admin/leaderboard/scores/');
+        const response = await axios.get('https://g437e9ea50f2c14-diabolicalleaderboards.adb.eu-frankfurt-1.oraclecloudapps.com/ords/admin/leaderboard/scores/');
         return {
             statusCode: 200,
             body: JSON.stringify(response.data.items)
