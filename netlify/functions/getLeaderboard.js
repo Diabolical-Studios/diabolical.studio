@@ -9,11 +9,23 @@ exports.handler = async (event) => {
         };
     }
 
+    // Extract game_id from the query parameters
+    const game_id = event.queryStringParameters.game_id;
+
+    if (!game_id) {
+        return {
+            statusCode: 400,
+            body: JSON.stringify({ message: "game_id not provided" })
+        };
+    }
+
     try {
-        const response = await axios.get('https://g437e9ea50f2c14-diabolicalleaderboards.adb.eu-frankfurt-1.oraclecloudapps.com/ords/admin/leaderboard/scores/');
+        // Modify the URL to pass the game_id as a query parameter to the Oracle endpoint
+        const response = await axios.get(`https://g437e9ea50f2c14-diabolicalleaderboards.adb.eu-frankfurt-1.oraclecloudapps.com/ords/admin/leaderboard/scores/?game_id=${encodeURIComponent(game_id)}`);
+
         return {
             statusCode: 200,
-            body: JSON.stringify(response.data.items)
+            body: JSON.stringify(response.data.items) // Assuming the response contains a "items" field with the leaderboard data
         };
     } catch (error) {
         console.error('Error fetching leaderboard:', error);
