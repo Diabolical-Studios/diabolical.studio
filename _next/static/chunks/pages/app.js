@@ -717,6 +717,10 @@
         } */,{
             href: "https://github.com/Diabolical-Studios/DiabolicalLauncher/releases/download/0.0.34/Diabolical-Launcher-Setup.exe",
             name: "Download Launcher"
+        },
+        {
+            href: "https://www.instagram.com/diabolical.studios/",
+            name: "Socials"
         }];
         function x(e) {
             let { menuRef: t } = e;
