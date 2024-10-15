@@ -35,3 +35,8 @@ exports.handler = async (event) => {
         };
     }
 };
+
+/* SELECT player_name, score, game_id 
+FROM leaderboard 
+WHERE game_id = :game_id 
+ORDER BY score DESC */

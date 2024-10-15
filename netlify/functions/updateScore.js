@@ -47,3 +47,18 @@ exports.handler = async (event) => {
         };
     }
 };
+
+
+/* BEGIN
+    UPDATE leaderboard
+    SET score = :score
+    WHERE player_name = :player_name 
+    AND game_id = :game_id 
+    AND :score > score;
+
+    IF SQL%ROWCOUNT = 0 THEN
+        INSERT INTO leaderboard (player_name, score, game_id)
+        VALUES (:player_name, :score, :game_id);
+    END IF;
+END;
+ */
