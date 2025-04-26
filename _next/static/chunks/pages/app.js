@@ -715,7 +715,7 @@
             href: "/awards",
             name: "Awards"
         } */,{
-            href: "https://github.com/Diabolical-Studios/DiabolicalLauncher/releases/download/0.0.34/Diabolical-Launcher-Setup.exe",
+            href: "https://launcher.diabolical.studio",
             name: "Download Launcher"
         },
         {
